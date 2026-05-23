@@ -1,0 +1,3336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thuế Thu Nhập Hoãn Lại Dành Cho Thiếu Nhi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+
+  :root {
+    --primary: #FF6B35;
+    --secondary: #4ECDC4;
+    --accent: #FFE66D;
+    --dark: #2C3E50;
+    --light-bg: #FFF9F5;
+    --card-bg: #FFFFFF;
+    --dta-color: #27AE60;
+    --dtl-color: #E74C3C;
+    --pe-color: #9B59B6;
+    --neutral: #3498DB;
+    --section-1: #FF8C42;
+    --section-2: #4ECDC4;
+    --section-3: #A8E063;
+    --section-4: #7B68EE;
+    --section-5: #FF6B9D;
+    --section-6: #FFA500;
+    --shadow: 0 4px 20px rgba(0,0,0,0.1);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ========== HEADER ========== */
+  .hero {
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #FFC107 100%);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+  }
+  .hero-emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; }
+  .hero-sub {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    margin-top: 12px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .badge-row {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-top: 20px; position: relative; z-index: 1;
+  }
+  .badge {
+    background: rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+  }
+
+  /* ========== NAVIGATION ========== */
+  .toc-wrapper {
+    background: white;
+    border-bottom: 3px solid var(--accent);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  }
+  .toc-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .toc-list {
+    display: flex; flex-wrap: wrap; gap: 6px; list-style: none;
+  }
+  .toc-list a {
+    display: block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--dark);
+    background: #F5F5F5;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .toc-list a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+  }
+
+  /* ========== LAYOUT ========== */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  /* ========== SECTIONS ========== */
+  .section {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 36px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--primary);
+    scroll-margin-top: 90px;
+  }
+  .section:nth-child(2n) { border-top-color: var(--secondary); }
+  .section:nth-child(3n) { border-top-color: #A8E063; }
+  .section:nth-child(4n) { border-top-color: var(--section-4); }
+  .section:nth-child(5n) { border-top-color: var(--section-5); }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #FFF3EE;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .icon { font-size: 1.5rem; }
+  .section-desc {
+    color: #666;
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px dashed #EEE;
+  }
+
+  /* ========== SUBSECTIONS ========== */
+  .subsection { margin-bottom: 32px; }
+  .subsection-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 14px;
+    padding-left: 14px;
+    border-left: 4px solid var(--secondary);
+  }
+
+  /* ========== TABLES ========== */
+  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  thead tr { background: linear-gradient(135deg, var(--dark), #3d5170); color: white; }
+  thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  tbody tr { border-bottom: 1px solid #F0F0F0; transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #FFF9F5; }
+  tbody td { padding: 11px 14px; vertical-align: top; }
+  tbody tr:nth-child(even) { background: #FAFAFA; }
+  tbody tr:nth-child(even):hover { background: #FFF9F5; }
+
+  /* Special table headers with colors */
+  .table-dta thead tr { background: linear-gradient(135deg, #27AE60, #2ECC71); }
+  .table-dtl thead tr { background: linear-gradient(135deg, #C0392B, #E74C3C); }
+  .table-neutral thead tr { background: linear-gradient(135deg, #2980B9, #3498DB); }
+
+  /* ========== BADGES in tables ========== */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .tag-dta { background: #E8F8F0; color: #1E8449; border: 1.5px solid #27AE60; }
+  .tag-dtl { background: #FDEDEC; color: #A93226; border: 1.5px solid #E74C3C; }
+  .tag-pe  { background: #F5EEF8; color: #7D3C98; border: 1.5px solid #9B59B6; }
+  .tag-no  { background: #EBF5FB; color: #1A5276; border: 1.5px solid #3498DB; }
+  .tag-check { background: #FFF3E0; color: #D35400; border: 1.5px solid #E67E22; }
+
+  /* ========== CALLOUTS ========== */
+  .callout {
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .callout-body { flex: 1; }
+  .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 5px; }
+  .callout-info { background: #EBF5FB; border: 1.5px solid #3498DB; }
+  .callout-info .callout-title { color: #1A5276; }
+  .callout-warning { background: #FEF9E7; border: 1.5px solid #F1C40F; }
+  .callout-warning .callout-title { color: #7D6608; }
+  .callout-danger { background: #FDEDEC; border: 1.5px solid #E74C3C; }
+  .callout-danger .callout-title { color: #922B21; }
+  .callout-success { background: #E9F7EF; border: 1.5px solid #27AE60; }
+  .callout-success .callout-title { color: #1E8449; }
+  .callout-purple { background: #F5EEF8; border: 1.5px solid #9B59B6; }
+  .callout-purple .callout-title { color: #6C3483; }
+
+  /* ========== FORMULA BOXES ========== */
+  .formula-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+  }
+  .formula-box::before {
+    content: 'CÔNG THỨC';
+    position: absolute;
+    top: 10px; right: 14px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Nunito', sans-serif;
+  }
+  .formula-box .formula-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .formula-main {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.8;
+  }
+  .formula-main .highlight { color: #4ECDC4; }
+  .formula-main .dim { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+  /* ========== CASE STUDY BOXES ========== */
+  .case-study {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  }
+  .case-header {
+    background: linear-gradient(135deg, #FF6B35, #FF8E53);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .case-header span { color: white; font-weight: 800; font-size: 0.9rem; }
+  .case-tag {
+    background: rgba(255,255,255,0.25);
+    color: white;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+  .case-body { background: #FFF9F5; padding: 20px; border: 1px solid #FFE0D0; border-top: none; }
+  .case-row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .case-col { flex: 1; min-width: 200px; }
+  .case-col-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 8px; }
+  .case-result {
+    background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+    border: 2px solid #27AE60;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 14px;
+  }
+  .case-result.dtl { background: linear-gradient(135deg, #FDEDEC, #FEF9E7); border-color: #E74C3C; }
+  .case-result .result-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: #666; margin-bottom: 4px; }
+  .case-result .result-value { font-size: 1.2rem; font-weight: 800; color: var(--dta-color); }
+  .case-result.dtl .result-value { color: var(--dtl-color); }
+
+  /* ========== GRID CARDS ========== */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0; }
+  .mini-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    border: 2px solid #EEE;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .mini-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary); }
+  .mini-card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .mini-card-title { font-weight: 800; font-size: 0.9rem; color: var(--dark); margin-bottom: 6px; }
+  .mini-card-text { font-size: 0.82rem; color: #666; line-height: 1.5; }
+  .mini-card.green { border-left: 4px solid var(--dta-color); }
+  .mini-card.red { border-left: 4px solid var(--dtl-color); }
+  .mini-card.blue { border-left: 4px solid var(--neutral); }
+  .mini-card.purple { border-left: 4px solid var(--pe-color); }
+
+  /* ========== CHECKLIST ========== */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #EEE;
+    font-size: 0.9rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ========== DECISION TABLE ========== */
+  .decision-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .decision-card {
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+  .decision-card .dc-title { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+  .dc-dta { background: #E8F8F0; border: 2px solid var(--dta-color); }
+  .dc-dta .dc-title { color: var(--dta-color); }
+  .dc-dtl { background: #FDEDEC; border: 2px solid var(--dtl-color); }
+  .dc-dtl .dc-title { color: var(--dtl-color); }
+  .dc-none { background: #F0F3F4; border: 2px solid #95A5A6; }
+  .dc-none .dc-title { color: #5D6D7E; }
+
+  /* ========== QUICK REFERENCE ========== */
+  .qr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .qr-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #EEE;
+  }
+  .qr-header { padding: 12px 16px; font-weight: 800; font-size: 0.85rem; color: white; }
+  .qr-header.green { background: var(--dta-color); }
+  .qr-header.red { background: var(--dtl-color); }
+  .qr-body { padding: 14px 16px; font-size: 0.82rem; background: white; }
+  .qr-body li { margin-bottom: 6px; list-style: none; display: flex; gap: 8px; align-items: flex-start; }
+  .qr-body li::before { content: '→'; color: #999; flex-shrink: 0; }
+
+  /* ========== LEGAL PILLS ========== */
+  .law-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .law-pill {
+    background: #F0F3F4;
+    border: 1.5px solid #D5D8DC;
+    color: #2C3E50;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: default;
+    transition: all 0.2s;
+  }
+  .law-pill:hover { background: var(--dark); color: white; border-color: var(--dark); }
+  .law-pill.new { background: #FFF3CD; border-color: #FFC107; color: #856404; }
+
+  /* ========== PROGRESS GUIDE ========== */
+  .level-indicator {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .level-item {
+    flex: 1;
+    padding: 8px 6px;
+    text-align: center;
+    background: #F0F0F0;
+    color: #999;
+    border-right: 2px solid white;
+    transition: all 0.2s;
+  }
+  .level-item:last-child { border-right: none; }
+  .level-item.active { background: var(--primary); color: white; }
+  .level-item.done { background: #D5F5E3; color: var(--dta-color); }
+
+  /* ========== SUMMARY BOX ========== */
+  .summary-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 14px;
+    padding: 28px;
+    color: white;
+    margin: 24px 0;
+  }
+  .summary-box h3 { font-family: 'Baloo 2', cursive; font-size: 1.3rem; margin-bottom: 16px; }
+  .summary-box table { font-size: 0.82rem; }
+  .summary-box thead tr { background: rgba(0,0,0,0.2); }
+  .summary-box tbody tr { border-bottom-color: rgba(255,255,255,0.1); }
+  .summary-box tbody tr:hover { background: rgba(255,255,255,0.08); }
+  .summary-box tbody tr:nth-child(even) { background: rgba(0,0,0,0.1); }
+  .summary-box tbody tr:nth-child(even):hover { background: rgba(255,255,255,0.08); }
+  .summary-box td, .summary-box th { color: white; }
+
+  /* ========== TEXT UTILS ========== */
+  .text-dta { color: var(--dta-color); font-weight: 700; }
+  .text-dtl { color: var(--dtl-color); font-weight: 700; }
+  .text-pe  { color: var(--pe-color); font-weight: 700; }
+  .text-muted { color: #888; font-size: 0.85rem; }
+  strong { font-weight: 700; }
+  em { font-style: italic; color: #555; }
+
+  p { margin-bottom: 12px; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .hero-title { font-size: 1.9rem; }
+    .section { padding: 24px 18px; }
+    .decision-row { grid-template-columns: 1fr; }
+    .qr-grid { grid-template-columns: 1fr; }
+    .toc-wrapper { padding: 14px 18px; }
+    .container { padding: 20px 12px; }
+    thead { display: none; }
+    tbody tr { display: block; margin-bottom: 12px; background: white; border-radius: 8px; border: 1px solid #EEE; }
+    tbody td { display: flex; padding: 8px 12px; border-bottom: 1px solid #F5F5F5; }
+    tbody td::before { content: attr(data-label); font-weight: 700; min-width: 120px; font-size: 0.75rem; color: #888; text-transform: uppercase; }
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    .toc-wrapper { display: none; }
+    .section { page-break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <span class="hero-emoji">🧸</span>
+  <div class="hero-title">Thuế Thu Nhập Hoãn Lại<br>Dành Cho Thiếu Nhi</div>
+  <div class="hero-sub">Cơ sở thuế · DTA · DTL · Từ nền tảng đến chuyên sâu</div>
+  <div class="badge-row">
+    <span class="badge">📜 VAS 17 · TT20/2006</span>
+    <span class="badge">🆕 TT99/2025 (từ 01/01/2026)</span>
+    <span class="badge">⚖️ Luật TNDN 67/2025</span>
+    <span class="badge">📋 NĐ 320/2025 · TT20/2026</span>
+    <span class="badge">🏭 TT45/2013 · TT30/2025</span>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<div class="toc-wrapper">
+  <div class="toc-title">📚 Nội dung</div>
+  <ul class="toc-list">
+    <li><a href="#bai-giang" style="background:#FFF3EE;border-color:#FF6B35;color:#FF6B35">🍭 Bài Giảng Gốc</a></li>
+    <li><a href="#chuong1">📖 C1: Thuế Hoãn Lại</a></li>
+    <li><a href="#chuong2">🚬 C2: Thuế TTĐB NK</a></li>
+    <li><a href="#chuong3">🌍 C3: Thuế TT Toàn Cầu</a></li>
+    <li><a href="#chuong4">🏢 C4: Thuế Nhà Thầu</a></li>
+    <li><a href="#chuong5">🏛️ C5: Hỗ Trợ NN</a></li>
+    <li><a href="#chuong6">🛡️ C6: Dự Phòng</a></li>
+    <li><a href="#phucluc">📋 Phụ Lục ĐK</a></li>
+    <li><a href="#phap-ly">⚖️ Pháp lý</a></li>
+    <li><a href="#nen-tang">🧱 Nền tảng</a></li>
+    <li><a href="#0a">🗺️ Bản đồ KT–Thuế</a></li>
+    <li><a href="#phan-1">🔧 Khấu hao</a></li>
+    <li><a href="#phan-2">🛡️ Dự phòng</a></li>
+    <li><a href="#phan-3">📈 Fair Value</a></li>
+    <li><a href="#phan-4">💼 Tạm ứng/Đặt cọc</a></li>
+    <li><a href="#phan-5">💱 Tỷ giá (FX)</a></li>
+    <li><a href="#phan-6">📅 Cut-off</a></li>
+    <li><a href="#phan-7">🎁 Chiết khấu</a></li>
+    <li><a href="#phan-8">🏛️ Thuế pháp định</a></li>
+    <li><a href="#phan-9">🛡️ Bảo hiểm</a></li>
+    <li><a href="#phan-10">🏗️ Xây lắp</a></li>
+    <li><a href="#phan-11">📊 Công cụ TC</a></li>
+    <li><a href="#equity">💰 Equity</a></li>
+    <li><a href="#phan-12">🤝 Hợp nhất</a></li>
+    <li><a href="#phan-13">⚠️ Dễ nhầm</a></li>
+    <li><a href="#phan-14">🌱 Tài sản sinh học</a></li>
+    <li><a href="#phan-15">🌐 Pillar Two</a></li>
+    <li><a href="#phan-16">🔀 Sắc thuế khác</a></li>
+    <li><a href="#tong-ket">📋 Tổng kết</a></li>
+    <li><a href="#luyen-de">✏️ Luyện đề</a></li>
+  </ul>
+</div>
+
+<div class="container">
+
+<!-- ===== BÀI GIẢNG GỐC ===== -->
+<section class="section" id="bai-giang" style="border-top-color:#FF6B35; background: linear-gradient(135deg,#fff9f5,#fff);">
+  <div class="section-label" style="background:#FFF3EE;color:#FF6B35;border-color:#FF6B35">🍭 Bài Giảng Gốc</div>
+  <h2 class="section-title"><span class="icon">📚</span> Lớp Học Kế Toán Thuế — Bài Giảng Đầy Đủ</h2>
+  <p class="section-desc">Nội dung bài giảng gốc gồm 7 chương: Thuế Thu Nhập Hoãn Lại · Thuế TTĐB Hàng NK · Thuế Tối Thiểu Toàn Cầu · Thuế Nhà Thầu · Hỗ Trợ Nhà Nước · Dự Phòng · Tổng hợp &amp; Phụ Lục Định Khoản</p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px">
+    <a href="#chuong1" style="text-decoration:none"><span class="law-pill new">📖 Chương 1: Thuế Hoãn Lại</span></a>
+    <a href="#chuong2" style="text-decoration:none"><span class="law-pill">🚬 Chương 2: Thuế TTĐB NK</span></a>
+    <a href="#chuong3" style="text-decoration:none"><span class="law-pill">🌍 Chương 3: Thuế TT Toàn Cầu</span></a>
+    <a href="#chuong4" style="text-decoration:none"><span class="law-pill">🏢 Chương 4: Thuế Nhà Thầu</span></a>
+    <a href="#chuong5" style="text-decoration:none"><span class="law-pill">🏛️ Chương 5: Hỗ Trợ NN</span></a>
+    <a href="#chuong6" style="text-decoration:none"><span class="law-pill">🛡️ Chương 6: Dự Phòng</span></a>
+    <a href="#phucluc" style="text-decoration:none"><span class="law-pill">📋 Phụ Lục</span></a>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 1: THUẾ THU NHẬP HOÃN LẠI
+     ============================================================ -->
+<section class="section" id="chuong1" style="border-top-color:#4ECDC4;">
+  <div class="section-label" style="background:#E8FAF8;color:#0E8C7E;border-color:#4ECDC4">Chương 1</div>
+  <h2 class="section-title"><span class="icon">📖</span> Thuế Thu Nhập Hoãn Lại (Deferred Tax)</h2>
+  <p class="section-desc">Hiểu đúng bản chất: không phải thuế loại (chi phí không được trừ), mà là chênh lệch <strong>tạm thời về thời điểm</strong> ghi nhận giữa kế toán và thuế.</p>
+
+  <!-- 1.1 -->
+  <div class="subsection" id="c1-1">
+    <h3 class="subsection-title">1.1 — Lý Do Phát Sinh Thuế Thu Nhập Hoãn Lại</h3>
+    <p>Thuế thu nhập hoãn lại phát sinh do sự khác biệt về <strong>thời điểm</strong> ghi nhận doanh thu và chi phí giữa kế toán và thuế. Đây không phải do chi phí không được trừ, mà là do khác biệt tạm thời.</p>
+    <p>Kế toán theo nguyên tắc phù hợp (<em>accrual basis</em>), còn thuế thường theo cơ sở tiền (<em>cash basis</em>) đối với một số khoản mục.</p>
+
+    <div class="card-grid" style="margin-top:16px">
+      <div class="mini-card purple">
+        <div class="mini-card-icon">🚫</div>
+        <div class="mini-card-title">Chi phí không được trừ (Chênh lệch vĩnh viễn)</div>
+        <div class="mini-card-text">Ví dụ: ăn cơm bụi không có hóa đơn — kế toán ghi chi phí nhưng thuế không cho trừ. <strong>Không thuộc phạm vi thuế hoãn lại.</strong></div>
+      </div>
+      <div class="mini-card green">
+        <div class="mini-card-icon">⏱️</div>
+        <div class="mini-card-title">Chênh lệch tạm thời ← Đây mới là phạm vi!</div>
+        <div class="mini-card-text">Cả kế toán và thuế đều ghi nhận, nhưng <strong>khác thời điểm</strong> hoặc khác góc nhìn. Sẽ đảo ngược trong tương lai.</div>
+      </div>
+    </div>
+
+    <div class="callout callout-success" style="margin-top:16px">
+      <div class="callout-icon">📝</div>
+      <div class="callout-body">
+        <div class="callout-title">Lưu ý quan trọng</div>
+        Ngay khi hạch toán, kế toán đã biết sự khác nhau giữa kế toán và thuế — <strong>không cần đợi thuế vào quyết toán mới biết!</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.2 -->
+  <div class="subsection" id="c1-2">
+    <h3 class="subsection-title">1.2 — Hai Loại Thuế Thu Nhập Hoãn Lại</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Loại</th><th>Tài khoản</th><th>Bản chất</th><th>Khi nào xuất hiện</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Tài sản thuế thu nhập hoãn lại</strong></td>
+            <td><strong>TK 243</strong></td>
+            <td>Đã nộp tiền thuế nhưng chưa xác định kết quả (giống TK 242 – chi phí trả trước)</td>
+            <td>Khi nộp thuế nhiều hơn phần kết chuyển theo kế toán</td>
+          </tr>
+          <tr>
+            <td><strong>Thuế thu nhập hoãn lại phải trả</strong></td>
+            <td><strong>TK 347</strong></td>
+            <td>Đã xác định kết quả nhưng chưa nộp (giống TK 335 – chi phí phải trả)</td>
+            <td>Khi kết chuyển theo kế toán nhiều hơn thuế phải nộp</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-info">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Mẹo: "Rau nào sâu đấy"</div>
+        Lợi nhuận kế toán bao nhiêu thì chi phí thuế tương ứng phải bấy nhiêu. Chi phí thuế thu nhập doanh nghiệp hoãn lại (<strong>TK 8212</strong>) có thể <strong>dương HOẶC âm</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.3 -->
+  <div class="subsection" id="c1-3">
+    <h3 class="subsection-title">1.3 — Ví Dụ Minh Họa: Khấu Hao Tài Sản Cố Định</h3>
+
+    <div class="case-study">
+      <div class="case-header" style="background:linear-gradient(135deg,#C0392B,#E74C3C)">
+        <span>📊 Tình huống 1: Kế toán tính khấu hao CHẬM hơn thuế → DTL phát sinh</span>
+        <span class="case-tag">TSCĐ 300tr · KT 3 năm · Thuế 2 năm</span>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Năm</th><th>Giá trị ghi sổ (KT)</th><th>Cơ sở tính thuế</th><th>Chênh lệch</th><th>Thuế hoãn lại phải trả</th></tr></thead>
+            <tbody>
+              <tr><td>Năm 1</td><td>200 triệu</td><td>150 triệu</td><td>+50 tr (GS &gt; CSTT)</td><td>50 × 20% = <strong>10 triệu</strong> → Nợ TK 8212 / Có TK 347</td></tr>
+              <tr><td>Năm 2</td><td>100 triệu</td><td>0 triệu</td><td>+100 tr tích lũy</td><td>20 tr tích lũy → bổ sung 10 tr → Nợ TK 8212 / Có TK 347</td></tr>
+              <tr><td>Năm 3</td><td>0 triệu</td><td>0 triệu</td><td>0 (revert)</td><td><strong>Nợ TK 347 / Có TK 8212 = 20 triệu</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study" style="margin-top:16px">
+      <div class="case-header" style="background:linear-gradient(135deg,#1E8449,#27AE60)">
+        <span>📊 Tình huống 2: Kế toán tính khấu hao NHANH hơn thuế → DTA phát sinh</span>
+        <span class="case-tag">TSCĐ 300tr · KT 2 năm · Thuế 3 năm</span>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Năm</th><th>Giá trị ghi sổ (KT)</th><th>Cơ sở tính thuế</th><th>Chênh lệch</th><th>Tài sản thuế hoãn lại</th></tr></thead>
+            <tbody>
+              <tr><td>Năm 1</td><td>150 triệu</td><td>200 triệu</td><td>-50 tr (GS &lt; CSTT)</td><td>50 × 20% = <strong>10 triệu</strong> → Nợ TK 243 / Có TK 8212</td></tr>
+              <tr><td>Năm 2</td><td>0 triệu</td><td>100 triệu</td><td>-100 tr tích lũy</td><td>20 tr tích lũy → bổ sung 10 tr → Nợ TK 243 / Có TK 8212</td></tr>
+              <tr><td>Năm 3</td><td>0 triệu</td><td>0 triệu</td><td>0 (revert)</td><td><strong>Nợ TK 8212 / Có TK 243 = 20 triệu</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-info" style="margin-top:16px">
+      <div class="callout-icon">📝</div>
+      <div class="callout-body">
+        <div class="callout-title">Tại sao dùng cách tiếp cận theo Bảng CĐKT?</div>
+        Cách tiếp cận theo bảng cân đối kế toán rất thông minh vì theo dõi được phần đã ghi nhận và phần cần bổ sung. Nếu chỉ nhìn chênh lệch doanh thu-chi phí từng năm, không thể biết năm đó là năm bổ sung hay năm revert.
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.4 -->
+  <div class="subsection" id="c1-4">
+    <h3 class="subsection-title">1.4 — Giá Trị Ghi Sổ và Cơ Sở Tính Thuế</h3>
+    <div class="card-grid">
+      <div class="mini-card blue">
+        <div class="mini-card-icon">📒</div>
+        <div class="mini-card-title">Giá trị ghi sổ (Carrying Amount)</div>
+        <div class="mini-card-text">Là giá trị theo dõi trên sổ sách kế toán (số dư trên báo cáo). Ví dụ TSCĐ: Nguyên giá − Hao mòn lũy kế <em>(theo kế toán)</em>.</div>
+      </div>
+      <div class="mini-card blue">
+        <div class="mini-card-icon">🏛️</div>
+        <div class="mini-card-title">Cơ sở tính thuế (Tax Base)</div>
+        <div class="mini-card-text"><strong>KHÔNG PHẢI</strong> con số để đem đi tính thuế. Là giá trị của khoản mục theo <strong>góc nhìn của thuế</strong>. Thuế và KT nhìn khác nhau → có chênh lệch tạm thời.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.5 -->
+  <div class="subsection" id="c1-5">
+    <h3 class="subsection-title">1.5 — Xác Định Cơ Sở Tính Thuế</h3>
+
+    <p><strong>Nhóm TÀI SẢN — Lợi ích kinh tế khi thu hồi CÓ tính thuế (1A)</strong></p>
+    <p class="text-muted">Áp dụng cho: Hàng tồn kho, Tài sản cố định, Khoản phải thu có chênh lệch tỷ giá</p>
+    <div class="formula-box">
+      <div class="formula-title">Công thức nhóm 1A</div>
+      <div class="formula-main"><span class="highlight">Cơ sở tính thuế = Chi phí sẽ được khấu trừ trong tương lai</span></div>
+    </div>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">📊</div>
+      <div class="callout-body">
+        <div class="callout-title">Ví dụ TSCĐ nhóm 1A</div>
+        TSCĐ nguyên giá 200tr, KT khấu hao 5 năm, thuế 4 năm. Hết năm 1: GTGS = 160tr; CSTT = 150tr (còn 3 năm thuế × 50tr/năm). Chênh lệch = 10tr → <span class="text-dtl">Thuế hoãn lại phải trả = 10 × 20% = 2 triệu</span>
+      </div>
+    </div>
+
+    <p style="margin-top:20px"><strong>Nhóm TÀI SẢN — Lợi ích kinh tế khi thu hồi KHÔNG tính thuế (1B)</strong></p>
+    <p class="text-muted">Áp dụng cho: Tiền, Nợ phải thu thương mại thông thường</p>
+    <div class="formula-box">
+      <div class="formula-title">Công thức nhóm 1B</div>
+      <div class="formula-main"><span class="highlight">Cơ sở tính thuế = Giá trị ghi sổ</span> <span class="dim">→ không có chênh lệch</span></div>
+    </div>
+
+    <div class="callout callout-warning" style="margin-top:12px">
+      <div class="callout-icon">💱</div>
+      <div class="callout-body">
+        <div class="callout-title">Trường hợp đặc biệt: Phải thu ngoại tệ có chênh lệch tỷ giá</div>
+        Phải tách thành 2 phần: <strong>Phần GỐC</strong> và <strong>phần CHÊNH LỆCH TỶ GIÁ</strong>. Lãi/lỗ tỷ giá nợ phải thu: kế toán tính trong hiện tại nhưng thuế tính khi thực thu → CÓ chênh lệch! Khác với chênh lệch tỷ giá nợ phải trả (cùng thời điểm).
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Trường hợp</th><th>Phần gốc</th><th>Phần lãi/lỗ tỷ giá</th><th>CSTT tổng</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Lãi tỷ giá (gốc 100, lãi 10)</td>
+            <td>GTGS=100, CSTT=100 (không tính thuế)</td>
+            <td>GTGS=10, CSTT=<strong>0</strong> (thuế tính khi thu hồi)</td>
+            <td><strong>CSTT = 100+0 = 100</strong> → chênh lệch +10 → <span class="text-dtl">DTL 2tr</span></td>
+          </tr>
+          <tr>
+            <td>Lỗ tỷ giá (gốc 100, lỗ 5)</td>
+            <td>GTGS=95, CSTT=95 (không tính thuế)</td>
+            <td>GTGS=0, CSTT=<strong>5</strong> (chi phí khấu trừ tương lai)</td>
+            <td><strong>CSTT = 95+5 = 100</strong> → chênh lệch -5 → <span class="text-dta">DTA 1tr</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:20px"><strong>Nhóm NỢ PHẢI TRẢ — Có bản chất doanh thu nhận trước</strong></p>
+    <div class="formula-box">
+      <div class="formula-title">Công thức nhóm nợ phải trả - doanh thu</div>
+      <div class="formula-main">
+        Chênh lệch tạm thời = Doanh thu đã chịu thuế trong hiện tại<br>
+        <span class="highlight">Cơ sở tính thuế = Giá trị ghi sổ − Chênh lệch tạm thời</span>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Loại nợ phải trả</th><th>Doanh thu đã chịu thuế hiện tại?</th><th>Kết quả</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Tiền lãi nhận trước (dịch vụ)</td>
+            <td>Toàn bộ 500 triệu (thuế tính khi thu tiền)</td>
+            <td>CSTT = 500−500 = 0 → CÓ chênh lệch 500tr → <span class="text-dta">DTA</span></td>
+          </tr>
+          <tr>
+            <td>Khách hàng đặt cọc mua hàng</td>
+            <td>0 triệu (thuế cũng tính khi giao hàng)</td>
+            <td>CSTT = 300−0 = 300 → <strong>KHÔNG</strong> có chênh lệch</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:20px"><strong>Nhóm NỢ PHẢI TRẢ — Có bản chất chi phí</strong></p>
+    <div class="formula-box">
+      <div class="formula-title">Công thức nhóm nợ phải trả - chi phí</div>
+      <div class="formula-main">
+        Chênh lệch tạm thời = Chi phí sẽ được khấu trừ trong tương lai<br>
+        <span class="highlight">Cơ sở tính thuế = Giá trị ghi sổ − Chênh lệch tạm thời</span>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Khoản mục</th><th>Chi phí khấu trừ tương lai</th><th>CSTT</th><th>Kết quả</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Chi phí trích trước lương nghỉ phép (100tr)</td>
+            <td>100tr (thuế chỉ tính khi trả thật)</td>
+            <td>100 − 100 = 0</td>
+            <td>CÓ chênh lệch → <span class="text-dta">DTA</span></td>
+          </tr>
+          <tr>
+            <td>Chi phí phải trả điện nước (80tr)</td>
+            <td>0 (thuế đã tính trong hiện tại)</td>
+            <td>80 − 0 = 80</td>
+            <td>KHÔNG chênh lệch</td>
+          </tr>
+          <tr>
+            <td>Tiền phạt vi phạm pháp luật (100tr)</td>
+            <td>0 (không được khấu trừ)</td>
+            <td>100 − 0 = 100</td>
+            <td>KHÔNG chênh lệch (<span class="text-pe">PE</span>)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-warning" style="margin-top:16px">
+      <div class="callout-icon">🔍</div>
+      <div class="callout-body">
+        <div class="callout-title">Trường hợp đặc biệt: GTGS = 0 nhưng vẫn có CSTT</div>
+        <strong>Ví dụ:</strong> Chi phí đồng phục 300 triệu: Kế toán ghi 1 kỳ (GTGS=0), thuế phân bổ 2 năm (mỗi năm 150tr). Chi phí sẽ được khấu trừ tương lai = 150tr → CSTT = 150tr. Chênh lệch = 150tr → <span class="text-dta">TÀI SẢN thuế hoãn lại</span>. Khoản mục không xuất hiện trên BCĐKT nhưng vẫn sinh ra cơ sở tính thuế!
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.6 -->
+  <div class="subsection" id="c1-6">
+    <h3 class="subsection-title">1.6 — Quy Tắc Xác Định Loại Chênh Lệch</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Khoản mục</th><th>Quan hệ GTGS vs CSTT</th><th>Loại chênh lệch</th><th>Sinh ra</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>TÀI SẢN</td>
+            <td>GTGS &lt; CSTT</td>
+            <td>Chênh lệch <strong>được khấu trừ</strong></td>
+            <td><span class="tag tag-dta">TÀI SẢN thuế hoãn lại (TK 243)</span></td>
+          </tr>
+          <tr>
+            <td>TÀI SẢN</td>
+            <td>GTGS &gt; CSTT</td>
+            <td>Chênh lệch <strong>phải chịu thuế</strong></td>
+            <td><span class="tag tag-dtl">THUẾ hoãn lại phải trả (TK 347)</span></td>
+          </tr>
+          <tr>
+            <td>NỢ PHẢI TRẢ</td>
+            <td>GTGS &gt; CSTT (luôn luôn)</td>
+            <td>Chênh lệch <strong>được khấu trừ</strong></td>
+            <td><span class="tag tag-dta">TÀI SẢN thuế hoãn lại (TK 243)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-success">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Mẹo nhớ theo nguyên tắc cân bằng</div>
+        Tài sản GTGS <strong>nhỏ hơn</strong> → sinh thêm <em>tài sản</em> để balance (TK 243). Tài sản GTGS <strong>lớn hơn</strong> → sinh <em>nợ phải trả</em> để balance (TK 347). Nợ phải trả luôn GTGS lớn hơn → luôn sinh tài sản để balance (TK 243).
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.7 -->
+  <div class="subsection" id="c1-7">
+    <h3 class="subsection-title">1.7 — Bài Tập Thực Hành 2024 (Đề Thi)</h3>
+    <div class="callout callout-purple">
+      <div class="callout-icon">✏️</div>
+      <div class="callout-body">
+        <div class="callout-title">Xác định cơ sở tính thuế các khoản mục</div>
+        <ul>
+          <li><strong>Khoản phải thu cổ tức 100 triệu:</strong> Tài sản, lợi ích khi thu hồi không tính thuế → CSTT = GTGS = 100 triệu</li>
+          <li><strong>Khoản phải thu ngoại tệ gốc 20 tỷ, lãi tỷ giá 0,2 tỷ:</strong> Gốc không tính thuế (CSTT gốc = 20 tỷ) + Lãi có tính thuế (CSTT lãi = 0) → Tổng CSTT = <strong>20 tỷ</strong></li>
+          <li><strong>Cho vay 300 triệu:</strong> Tài sản, không tính thuế → CSTT = GTGS = 300 triệu</li>
+          <li><strong>Tiền ứng trước khách hàng 100 tỷ, đã nộp thuế 1 tỷ:</strong> Nợ phải trả doanh thu. Doanh thu đã chịu thuế = 1 ÷ 20% = 5 tỷ → CSTT = 100 − 5 = <strong>95 tỷ</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.8 -->
+  <div class="subsection" id="c1-8">
+    <h3 class="subsection-title">1.8 — Trình Bày Trên Báo Cáo Tài Chính</h3>
+    <div class="card-grid">
+      <div class="mini-card blue">
+        <div class="mini-card-icon">📊</div>
+        <div class="mini-card-title">Bảng cân đối kế toán</div>
+        <div class="mini-card-text">
+          <strong>TK 243</strong> (Tài sản thuế hoãn lại): Thuộc <em>TÀI SẢN DÀI HẠN</em><br>
+          <strong>TK 347</strong> (Thuế hoãn lại phải trả): Thuộc <em>NỢ PHẢI TRẢ DÀI HẠN</em>
+        </div>
+      </div>
+      <div class="mini-card green">
+        <div class="mini-card-icon">📋</div>
+        <div class="mini-card-title">Báo cáo KQKD</div>
+        <div class="mini-card-text">
+          Chi phí thuế TNDN <strong>hiện hành</strong>: Nợ TK 8211 / Có TK 3334<br>
+          Chi phí thuế TNDN <strong>hoãn lại</strong>: Nợ/Có TK 8212 / Có/Nợ TK 243 hoặc 347<br>
+          Kết chuyển: Nợ TK 821 / Có TK 911
+        </div>
+      </div>
+    </div>
+    <div class="callout callout-warning" style="margin-top:16px">
+      <div class="callout-icon">📝</div>
+      <div class="callout-body">
+        <div class="callout-title">Điều kiện bù trừ TK 243 và TK 347</div>
+        Được bù trừ khi: (1) Có quyền hợp pháp để bù trừ; (2) Cùng được quản lý bởi <strong>một cơ quan thuế</strong> (cùng đơn vị tính thuế). <strong>Không được bù trừ</strong> nếu: văn phòng chính và chi nhánh tỉnh khác. Chi phí thuế TNDN hiện hành luôn ≥ 0; chi phí thuế TNDN hoãn lại <strong>có thể dương hoặc âm</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 2: THUẾ TIÊU THỤ ĐẶC BIỆT HÀNG NHẬP KHẨU
+     ============================================================ -->
+<section class="section" id="chuong2" style="border-top-color:#E67E22;">
+  <div class="section-label" style="background:#FEF5EC;color:#A04000;border-color:#E67E22">Chương 2</div>
+  <h2 class="section-title"><span class="icon">🚬</span> Thuế Tiêu Thụ Đặc Biệt Hàng Nhập Khẩu</h2>
+  <p class="section-desc">Điểm đặc biệt: phải nộp thuế TTĐB <strong>ngay khi nhập khẩu</strong>, nhưng thu được từ người mua khi tiêu thụ. Cơ chế khấu trừ tương tự thuế GTGT.</p>
+
+  <div class="subsection">
+    <h3 class="subsection-title">2.1 — Cơ Chế Hoạt Động (Quy Trình 4 Bước)</h3>
+    <div class="card-grid">
+      <div class="mini-card red">
+        <div class="mini-card-icon">1️⃣</div>
+        <div class="mini-card-title">Nhập khẩu → Kê nộp ngay</div>
+        <div class="mini-card-text"><strong>Nợ TK 1383 / Có TK 112</strong></div>
+      </div>
+      <div class="mini-card green">
+        <div class="mini-card-icon">2️⃣</div>
+        <div class="mini-card-title">Bán hàng → Thu thuế từ người mua</div>
+        <div class="mini-card-text"><strong>Nợ TK 111/131 / Có TK 3332</strong></div>
+      </div>
+      <div class="mini-card blue">
+        <div class="mini-card-icon">3️⃣</div>
+        <div class="mini-card-title">Khấu trừ (theo tỷ lệ đã bán)</div>
+        <div class="mini-card-text"><strong>TK 3332 ↔ TK 1383</strong><br><em>Chỉ được khấu trừ tương ứng số đã bán!</em></div>
+      </div>
+      <div class="mini-card purple">
+        <div class="mini-card-icon">4️⃣</div>
+        <div class="mini-card-title">Nộp phần còn lại</div>
+        <div class="mini-card-text"><strong>Nợ TK 3332 / Có TK 112</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">2.2 — Xăng Sinh Học — Quy Định Đặc Biệt</h3>
+    <div class="callout callout-info">
+      <div class="callout-icon">⛽</div>
+      <div class="callout-body">
+        <div class="callout-title">Xăng sinh học được phép bù trừ TK 1383 với nghĩa vụ TTĐB khác</div>
+        Xăng sinh học mua về để pha trộn, phần đã nộp thường lớn hơn phần bán ra. Số dư TK 1383 dư có thể bù trừ nghĩa vụ TTĐB khác hoặc chuyển kỳ sau.<br>
+        <strong>Ví dụ:</strong> Nhập 1 triệu lít × 3.500đ/lít = 3,5 tỷ TTĐB. Bán 800.000 lít → thu 2,4 tỷ. Được khấu trừ 2,4 tỷ → TK 1383 dư 1,1 tỷ → Bù trừ nghĩa vụ TTĐB khác hoặc chuyển kỳ sau.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">2.3 — Bài Tập Minh Họa</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Hàng hóa</th><th>NK về</th><th>Nộp TTĐB (NK)</th><th>Bán ra</th><th>Thu TTĐB (bán)</th><th>Được khấu trừ</th><th>Phải nộp thêm</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Thuốc lá</td>
+            <td>10.000 bao × 180.000đ × 75%</td>
+            <td>1,35 tỷ</td>
+            <td>8.000 bao</td>
+            <td>1,5 tỷ</td>
+            <td>1,08 tỷ (8.000 bao)</td>
+            <td><strong>0,42 tỷ</strong></td>
+          </tr>
+          <tr>
+            <td>Xe máy</td>
+            <td>200 chiếc × 45tr × 20%</td>
+            <td>1,8 tỷ</td>
+            <td>150 chiếc</td>
+            <td>1,65 tỷ</td>
+            <td>1,35 tỷ (150 chiếc)</td>
+            <td><strong>0,30 tỷ</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-success" style="margin-top:12px">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Mẹo ứng dụng xăng sinh học</div>
+        Số dư TK 1383: Thuốc lá 0,27 tỷ + Xe máy 0,45 tỷ chờ bán nốt. Xăng sinh học dư 1,1 tỷ có thể dùng để bù trừ 0,42 tỷ (thuốc lá) + 0,30 tỷ (xe máy) = tiết kiệm 0,72 tỷ tiền nộp.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 3: THUẾ TỐI THIỂU TOÀN CẦU
+     ============================================================ -->
+<section class="section" id="chuong3" style="border-top-color:#8E44AD;">
+  <div class="section-label" style="background:#F5EEF8;color:#6C3483;border-color:#8E44AD">Chương 3</div>
+  <h2 class="section-title"><span class="icon">🌍</span> Thuế Tối Thiểu Toàn Cầu (Pillar Two)</h2>
+  <p class="section-desc">Áp dụng cho doanh nghiệp thuộc tập đoàn đa quốc gia có mức thuế suất dưới 15%. Mục đích: đảm bảo ngưỡng thuế tối thiểu 15%, tránh chuyển giá.</p>
+
+  <div class="subsection">
+    <h3 class="subsection-title">3.2 — Hạch Toán Theo Bên Chịu Trách Nhiệm Kê Khai</h3>
+
+    <div class="card-grid">
+      <div class="mini-card green">
+        <div class="mini-card-icon">✅</div>
+        <div class="mini-card-title">Bên CÓ trách nhiệm kê khai</div>
+        <div class="mini-card-text">
+          Nghĩa vụ của mình: <strong>Nợ TK 8212 / Có TK 3334</strong><br>
+          Nghĩa vụ của bên khác: <strong>Nợ TK 8212 / Có TK 138</strong><br>
+          Khi chưa nộp (treo): <strong>Nợ TK 243 / Có TK 8212</strong><br>
+          Khi nộp thực tế: <strong>Nợ TK 3334 / Có TK 112</strong> + đồng thời <strong>Nợ TK 8212 / Có TK 243</strong> (revert)
+        </div>
+      </div>
+      <div class="mini-card red">
+        <div class="mini-card-icon">❌</div>
+        <div class="mini-card-title">Bên KHÔNG có trách nhiệm kê khai</div>
+        <div class="mini-card-text">
+          <strong>Nợ TK 8212 / Có TK 3388</strong> (thay vì TK 3334)<br>
+          Khi trả tiền: <strong>Nợ TK 3388 / Có TK 112</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-warning" style="margin-top:16px">
+      <div class="callout-icon">📝</div>
+      <div class="callout-body">
+        <div class="callout-title">Lưu ý thứ tự thời gian</div>
+        Khi mới tính nhưng <strong>chưa nộp</strong> → treo vào TK 243, chưa tính xác định kết quả. Đến khi <strong>nộp thực sự</strong> → mới đẩy từ TK 243 sang TK 8212 để kết chuyển xác định kết quả.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 4: THUẾ NHÀ THẦU
+     ============================================================ -->
+<section class="section" id="chuong4" style="border-top-color:#16A085;">
+  <div class="section-label" style="background:#E8F8F5;color:#0E6655;border-color:#16A085">Chương 4</div>
+  <h2 class="section-title"><span class="icon">🏢</span> Thuế Nhà Thầu (FCT)</h2>
+  <p class="section-desc">Áp dụng cho đơn vị nước ngoài cung cấp hàng hóa/dịch vụ tại Việt Nam <strong>không có đăng ký thuế</strong>. Bên Việt Nam phải kê khai và nộp thuế thay trước khi thanh toán. Thuế nhà thầu gồm: CIT + VAT.</p>
+
+  <div class="subsection">
+    <h3 class="subsection-title">4.1 — Tình Huống 1: Giá Hợp Đồng ĐÃ Bao Gồm Thuế</h3>
+    <div class="case-study">
+      <div class="case-header" style="background:linear-gradient(135deg,#16A085,#1ABC9C)">
+        <span>📊 Ví dụ: Hợp đồng 1.200 triệu (đã bao gồm CIT và VAT)</span>
+        <span class="case-tag">CIT 2% · VAT 5%</span>
+      </div>
+      <div class="case-body">
+        <p><strong>CIT</strong> = 1.200 × 2% = 24 triệu &nbsp;|&nbsp; <strong>VAT</strong> = 1.200 × 5% = 60 triệu</p>
+        <div class="table-wrap" style="margin-top:12px">
+          <table>
+            <thead><tr><th>Bước</th><th>Sự kiện</th><th>Định khoản</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Nhận dịch vụ</td><td>Nợ TK 627/642 (1.140tr) + Nợ TK 138 (60tr VAT) / Có TK 331 (1.200tr)</td></tr>
+              <tr><td>2</td><td>Thanh toán</td><td>Nợ TK 331 (1.200) / Có TK 112 (1.116) + Có TK 3339 (84 = CIT+VAT)</td></tr>
+              <tr><td>3</td><td>Nộp thuế nhà thầu</td><td>Nợ TK 3339 (84) / Có TK 112 (84)</td></tr>
+              <tr><td>4</td><td>Khấu trừ VAT</td><td>Nợ TK 133 (60) / Có TK 138 (60)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-info" style="margin-top:12px">
+          <div class="callout-icon">📝</div>
+          <div class="callout-body">
+            Chi phí tính vào 627/642 = 1.200 − VAT được khấu trừ (60) = <strong>1.140 triệu</strong>. CIT tính vào chi phí vì là nghĩa vụ thuế của nhà thầu.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">4.2 — Tình Huống 2: Giá Hợp Đồng CHƯA Bao Gồm Thuế</h3>
+    <div class="case-study">
+      <div class="case-header" style="background:linear-gradient(135deg,#D35400,#E67E22)">
+        <span>📊 Ví dụ: Hợp đồng 1.000 triệu (chưa gồm thuế)</span>
+        <span class="case-tag">Gross-up · CIT 2% · VAT 5%</span>
+      </div>
+      <div class="case-body">
+        <div class="formula-box" style="margin-bottom:14px">
+          <div class="formula-title">Công thức gross-up</div>
+          <div class="formula-main">
+            Doanh thu tính thuế = Giá HĐ ÷ (1 − CIT% − VAT%)<br>
+            = 1.000 ÷ (1 − 2% − 5%) = <span class="highlight">1.075,3 triệu</span><br>
+            <span class="dim">CIT = 1.075,3 × 2% = 21,5tr &nbsp;|&nbsp; VAT = 1.075,3 × 5% = 53,8tr</span>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bước</th><th>Sự kiện</th><th>Định khoản</th></tr></thead>
+            <tbody>
+              <tr><td>1A</td><td>Nhận dịch vụ + CIT</td><td>Nợ TK 627/642 (1.021,5tr = 1.000+21,5) / Có TK 331 (1.021,5)</td></tr>
+              <tr><td>2A</td><td>Thanh toán nhà thầu</td><td>Nợ TK 331 (1.000) / Có TK 112 (1.000)</td></tr>
+              <tr><td>2B</td><td>Kê khai thuế</td><td>Nợ TK 331 (21,5 CIT) + Nợ TK 138 (53,8 VAT) / Có TK 3339 (75,3)</td></tr>
+              <tr><td>3</td><td>Nộp thuế</td><td>Nợ TK 3339 (75,3) / Có TK 112 (75,3)</td></tr>
+              <tr><td>4</td><td>Khấu trừ VAT</td><td>Nợ TK 133 (53,8) / Có TK 138 (53,8)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="callout callout-warning" style="margin-top:12px">
+      <div class="callout-icon">📝</div>
+      <div class="callout-body">
+        <div class="callout-title">Lưu ý công thức gross-up</div>
+        Cả CIT và VAT đều tính trên <strong>CÙNG MỘT</strong> doanh thu. Tình huống 3 (phương pháp hỗn hợp: đã gồm VAT nhưng chưa gồm CIT) chỉ áp dụng hợp đồng cũ ký theo thông tư cũ.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 5: HỖ TRỢ, TRỢ CẤP CỦA NHÀ NƯỚC
+     ============================================================ -->
+<section class="section" id="chuong5" style="border-top-color:#2980B9;">
+  <div class="section-label" style="background:#EBF5FB;color:#1A5276;border-color:#2980B9">Chương 5</div>
+  <h2 class="section-title"><span class="icon">🏛️</span> Hỗ Trợ, Trợ Cấp Của Nhà Nước (Thông Tư 99)</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">5.1 — Hỗ Trợ Liên Quan Đến TÀI SẢN (có điều kiện)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sự kiện</th><th>Định khoản</th><th>Lý do</th></tr></thead>
+        <tbody>
+          <tr><td>Khi nhận</td><td><strong>Nợ TK 111/211 / Có TK 3387</strong></td><td>Treo vào doanh thu chưa thực hiện</td></tr>
+          <tr><td>Phân bổ dần (cùng trích khấu hao)</td><td><strong>Nợ TK 3387 / Có TK 711</strong></td><td>Ghi doanh thu theo từng kỳ cùng với chi phí (khấu hao)</td></tr>
+          <tr><td>Được phép ghi tăng vốn</td><td><strong>Nợ TK 3387 / Có TK 411</strong></td><td>Theo quy định cụ thể</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">5.2 &amp; 5.3 — Hỗ Trợ Thu Nhập và Trợ Giá</h3>
+    <div class="card-grid">
+      <div class="mini-card green">
+        <div class="mini-card-icon">💰</div>
+        <div class="mini-card-title">Không kèm điều kiện</div>
+        <div class="mini-card-text"><strong>Nợ TK 111 / Có TK 711</strong><br>Ghi nhận ngay vào doanh thu</div>
+      </div>
+      <div class="mini-card blue">
+        <div class="mini-card-icon">📋</div>
+        <div class="mini-card-title">Kèm điều kiện</div>
+        <div class="mini-card-text">
+          Khi nhận: <strong>Nợ TK 111 / Có TK 3387</strong><br>
+          Khi đủ điều kiện: <strong>Nợ TK 3387 / Có TK 711</strong>
+        </div>
+      </div>
+      <div class="mini-card purple">
+        <div class="mini-card-icon">🚌</div>
+        <div class="mini-card-title">Trợ cấp, trợ giá (xe buýt)</div>
+        <div class="mini-card-text">
+          Khi nhận quyết định: <strong>Nợ TK 339 / Có TK 511</strong><br>
+          Khi nhận tiền: <strong>Nợ TK 112 / Có TK 339</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 6: DỰ PHÒNG, CHI PHÍ PHẢI TRẢ VÀ NỢ TIỀM TÀNG
+     ============================================================ -->
+<section class="section" id="chuong6" style="border-top-color:#E74C3C;">
+  <div class="section-label" style="background:#FDEDEC;color:#922B21;border-color:#E74C3C">Chương 6</div>
+  <h2 class="section-title"><span class="icon">🛡️</span> Dự Phòng, Chi Phí Phải Trả &amp; Nợ Tiềm Tàng</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">6.1 — Phân Loại Theo Mức Độ Chắc Chắn</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mức độ</th><th>Loại</th><th>TK</th><th>Đặc điểm</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Chắc chắn, rõ ràng</td>
+            <td><strong>Nợ phải trả</strong></td>
+            <td>331, 333...</td>
+            <td>Nghĩa vụ nợ đã xác định; thời gian, quy mô rõ ràng; đã có hóa đơn hoặc văn bản pháp lý</td>
+          </tr>
+          <tr>
+            <td>Chắc chắn phát sinh, chưa có hóa đơn</td>
+            <td><strong>Chi phí phải trả / trích trước</strong></td>
+            <td>TK 335</td>
+            <td>Biết chắc sẽ phải trả, có cơ sở ước tính. Ví dụ: lãi vay chưa đến kỳ trả, điện thoại tháng 12</td>
+          </tr>
+          <tr>
+            <td>Tương đối chắc chắn, chưa xác định</td>
+            <td><strong>Dự phòng phải trả</strong></td>
+            <td>TK 352</td>
+            <td>Khả năng xảy ra &gt; không xảy ra; thời gian và quy mô chưa chính xác. Ví dụ: đang bị kiện</td>
+          </tr>
+          <tr>
+            <td>Khả năng thấp, không có cơ sở ước tính</td>
+            <td><strong>Nợ tiềm tàng</strong></td>
+            <td>Chỉ thuyết minh</td>
+            <td>Không có cơ sở ước tính đáng tin cậy; chỉ trình bày ở Thuyết minh BCTC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">6.2 — Dự Phòng Nợ Phải Thu vs Dự Phòng Nợ Phải Trả</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Loại dự phòng</th><th>Bản chất</th><th>Trình bày trên BCĐKT</th><th>TK</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Dự phòng nợ phải thu</td>
+            <td>Điều chỉnh cho <strong>TÀI SẢN</strong> (khoản tài sản bị suy giảm)</td>
+            <td>Ghi <strong>ÂM</strong> bên tài sản</td>
+            <td>TK 229</td>
+          </tr>
+          <tr>
+            <td>Dự phòng nợ phải trả</td>
+            <td>Một <strong>NGHĨA VỤ NỢ</strong> mới phát sinh</td>
+            <td>Ghi <strong>DƯƠNG</strong> bên nợ phải trả</td>
+            <td>TK 352</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">6.3 — Cơ Sở Ước Tính Dự Phòng</h3>
+    <div class="card-grid">
+      <div class="mini-card blue">
+        <div class="mini-card-icon">🔍</div>
+        <div class="mini-card-title">Dự phòng nợ phải thu khó đòi</div>
+        <div class="mini-card-text">
+          • Biên bản ghi nhận nợ tại thời điểm phát sinh<br>
+          • Nỗ lực gửi thư xác nhận (không nhất thiết phải nhận được xác nhận)<br>
+          • Phân tích tuổi nợ<br>
+          • Phân tích tình hình tài chính con nợ (phá sản, giải thể)
+        </div>
+      </div>
+      <div class="mini-card red">
+        <div class="mini-card-icon">⚖️</div>
+        <div class="mini-card-title">Dự phòng phải trả</div>
+        <div class="mini-card-text">
+          • Chứng minh có nghĩa vụ nợ hiện tại (ví dụ: đang bị kiện)<br>
+          • Khả năng thua kiện cao (theo tư vấn luật sư)<br>
+          • Ước tính đáng tin cậy về giá trị (bản tư vấn chuyên gia)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">6.4 — Dự Phòng Hợp Đồng Xây Dựng (Điểm Mới TT99)</h3>
+    <div class="callout callout-danger">
+      <div class="callout-icon">🆕</div>
+      <div class="callout-body">
+        <div class="callout-title">Thay đổi quan trọng theo Thông Tư 99</div>
+        Dự phòng cho hợp đồng xây dựng (bảo hành công trình) được tính vào <strong>CHI PHÍ BÁN HÀNG (TK 641)</strong>, không phải vào giá công trình (627) như trước.<br><br>
+        <strong>Trích lập:</strong> Nợ TK 641 / Có TK 352<br>
+        <strong>Hoàn nhập:</strong> Nợ TK 352 / Có TK 641<br><br>
+        <em>Trước đây: Trích vào 627, hoàn nhập vào 711 — không nhất quán. Bây giờ đồng nhất vào TK 641.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">6.5 — Tài Sản Tiềm Tàng và Nợ Tiềm Tàng</h3>
+    <div class="callout callout-info">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">Mẹo keyword đề thi</div>
+        Keyword trong đề thi: <strong>"chưa có cơ sở ước tính đáng tin cậy"</strong> → đáp án: <em>Chỉ trình bày ở Thuyết Minh, không lên BCTC.</em><br>
+        Tài sản tiềm tàng (đang đi kiện): Chỉ khi thực sự nhận được quyết định tòa mới ghi nhận.<br>
+        Cả hai đều thiếu cơ sở ước tính đáng tin cậy → chỉ thuyết minh.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHƯƠNG 7: KINH NGHIỆM & TỔNG HỢP
+     ============================================================ -->
+<section class="section" id="chuong7" style="border-top-color:#27AE60;">
+  <div class="section-label" style="background:#E9F7EF;color:#1E8449;border-color:#27AE60">Chương 7</div>
+  <h2 class="section-title"><span class="icon">🎓</span> Kinh Nghiệm, Lưu Ý &amp; Tổng Hợp</h2>
+
+  <div class="subsection">
+    <h3 class="subsection-title">7.1 — Các Tài Khoản Quan Trọng Cần Nhớ</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>TK</th><th>Tên gọi</th><th>Nhóm</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TK 243</strong></td><td>Tài sản thuế thu nhập hoãn lại</td><td>Tài sản dài hạn</td><td>Đã nộp thuế nhưng chưa kết chuyển kết quả</td></tr>
+          <tr><td><strong>TK 347</strong></td><td>Thuế thu nhập hoãn lại phải trả</td><td>Nợ phải trả dài hạn</td><td>Đã kết chuyển kết quả nhưng chưa nộp</td></tr>
+          <tr><td><strong>TK 8211</strong></td><td>Chi phí thuế TNDN hiện hành</td><td>Chi phí</td><td>Đối ứng TK 3334 (nghĩa vụ năm nay); luôn ≥ 0</td></tr>
+          <tr><td><strong>TK 8212</strong></td><td>Chi phí thuế TNDN hoãn lại</td><td>Chi phí</td><td>Có thể dương hoặc âm</td></tr>
+          <tr><td><strong>TK 1383</strong></td><td>Thuế TTĐB hàng NK chờ khấu trừ</td><td>Tài sản ngắn hạn</td><td>Theo dõi TTĐB đã nộp chờ bù trừ</td></tr>
+          <tr><td><strong>TK 3332</strong></td><td>Thuế TTĐB</td><td>Nợ ngắn hạn</td><td>Thu từ người mua</td></tr>
+          <tr><td><strong>TK 3339</strong></td><td>Thuế nhà thầu phải nộp</td><td>Nợ ngắn hạn</td><td>CIT + VAT giữ lại để nộp</td></tr>
+          <tr><td><strong>TK 3387</strong></td><td>Doanh thu chưa thực hiện</td><td>Nợ phải trả</td><td>Hỗ trợ nhà nước có điều kiện</td></tr>
+          <tr><td><strong>TK 335</strong></td><td>Chi phí phải trả</td><td>Nợ ngắn hạn</td><td>Chắc chắn phát sinh, chưa có hóa đơn</td></tr>
+          <tr><td><strong>TK 352</strong></td><td>Dự phòng phải trả</td><td>Nợ phải trả</td><td>Tương đối chắc chắn, chưa xác định</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">7.2 — Quy Tắc Thuế Cần Nhớ</h3>
+    <div class="callout callout-danger">
+      <div class="callout-icon">⭐</div>
+      <div class="callout-body">
+        <div class="callout-title">Thuế LUÔN muốn thu tiền SỚM với doanh thu</div>
+        <ul>
+          <li><strong>Dịch vụ:</strong> Thuế tính khi thu tiền (trừ kiểm toán, xây dựng)</li>
+          <li><strong>Hàng hóa:</strong> Thuế chỉ tính khi giao hàng</li>
+          <li><strong>Lãi/lỗ tỷ giá nợ phải thu:</strong> Thuế tính khi thực thu (khác kế toán)</li>
+          <li><strong>Lương trích trước nghỉ phép:</strong> Thuế tính khi thực trả (để đảm bảo quyền lợi NLĐ)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3 class="subsection-title">7.4 — Các Trường Hợp Thường Gặp Gây Chênh Lệch Tạm Thời</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Trường hợp</th><th>Kế toán</th><th>Thuế</th><th>Kết quả</th></tr></thead>
+        <tbody>
+          <tr><td>Khấu hao TSCĐ</td><td>Số năm theo chính sách KT</td><td>Theo khung TT45/TT30</td><td>Chênh lệch tạm thời → DTA hoặc DTL</td></tr>
+          <tr><td>Doanh thu dịch vụ nhận tiền trước</td><td>Đẩy về tương lai theo POC/accrual</td><td>Tính hiện tại khi thu tiền</td><td>→ <span class="text-dta">DTA</span> (thuế tính trước KT)</td></tr>
+          <tr><td>Chi phí trích trước lương nghỉ phép</td><td>Trích trước theo kỳ</td><td>Đợi thực trả</td><td>→ <span class="text-dta">DTA</span></td></tr>
+          <tr><td>Chi phí trả trước / chờ phân bổ</td><td>Phân bổ theo kỳ hưởng lợi</td><td>Có thể trừ sớm hoặc chậm hơn</td><td>DTA hoặc DTL tùy trường hợp</td></tr>
+          <tr><td>Chênh lệch tỷ giá nợ phải thu</td><td>Ghi ngay cuối kỳ</td><td>Đợi thực thu</td><td>Lãi FX → <span class="text-dtl">DTL</span>; Lỗ FX → <span class="text-dta">DTA</span></td></tr>
+          <tr><td>Dự phòng bảo hành công trình</td><td>Ghi nhận theo tiến độ</td><td>Chỉ khi hoàn thành/thực chi</td><td>→ <span class="text-dta">DTA</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PHỤ LỤC: SƠ ĐỒ TỔNG HỢP ĐỊNH KHOẢN
+     ============================================================ -->
+<section class="section" id="phucluc" style="border-top-color:#7F8C8D;background:linear-gradient(135deg,#FAFAFA,#FFF);">
+  <div class="section-label" style="background:#F2F3F4;color:#566573;border-color:#7F8C8D">Phụ Lục</div>
+  <h2 class="section-title"><span class="icon">📋</span> Sơ Đồ Tổng Hợp Định Khoản</h2>
+  <p class="section-desc">Bảng tra nhanh tất cả định khoản quan trọng trong bài giảng.</p>
+
+  <h3 class="subsection-title">A — Thuế Thu Nhập Hoãn Lại</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sự kiện</th><th>Định khoản</th><th>Ý nghĩa</th></tr></thead>
+      <tbody>
+        <tr><td>Phát sinh tài sản thuế hoãn lại</td><td><strong>Nợ TK 243 / Có TK 8212</strong></td><td>Đã nộp nhiều hơn, treo chờ kết chuyển</td></tr>
+        <tr><td>Revert tài sản thuế hoãn lại</td><td><strong>Nợ TK 8212 / Có TK 243</strong></td><td>Kết chuyển xác định kết quả</td></tr>
+        <tr><td>Phát sinh thuế hoãn lại phải trả</td><td><strong>Nợ TK 8212 / Có TK 347</strong></td><td>Kết chuyển rồi, chưa nộp</td></tr>
+        <tr><td>Revert thuế hoãn lại phải trả</td><td><strong>Nợ TK 347 / Có TK 8212</strong></td><td>Đã nộp, hoàn tất</td></tr>
+        <tr><td>Thuế hiện hành</td><td><strong>Nợ TK 8211 / Có TK 3334</strong></td><td>Theo tờ khai thuế</td></tr>
+        <tr><td>Kết chuyển chi phí thuế</td><td><strong>Nợ TK 821 / Có TK 911</strong></td><td>Cuối kỳ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title" style="margin-top:24px">B — Thuế TTĐB Hàng Nhập Khẩu</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sự kiện</th><th>Định khoản</th></tr></thead>
+      <tbody>
+        <tr><td>Nộp thuế TTĐB khi nhập khẩu</td><td><strong>Nợ TK 1383 / Có TK 112</strong></td></tr>
+        <tr><td>Bán hàng ra, thu thuế TTĐB</td><td><strong>Nợ TK 111/131 / Có TK 3332</strong></td></tr>
+        <tr><td>Khấu trừ (tương ứng số đã bán)</td><td><strong>Nợ TK 3332 / Có TK 1383</strong></td></tr>
+        <tr><td>Nộp phần còn lại</td><td><strong>Nợ TK 3332 / Có TK 112</strong></td></tr>
+        <tr><td>Phần NK lớn hơn bán ra → chi phí</td><td><strong>Nợ TK 632 / Có TK 1383</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title" style="margin-top:24px">C — Thuế Nhà Thầu (Giá đã bao gồm thuế, HĐ = 1.200tr)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bước</th><th>Định khoản</th></tr></thead>
+      <tbody>
+        <tr><td>1. Nhận dịch vụ</td><td><strong>Nợ 627/642 (1.140) + Nợ 138 (60 VAT) / Có 331 (1.200)</strong></td></tr>
+        <tr><td>2. Thanh toán + kê khai</td><td><strong>Nợ 331 (1.200) / Có 112 (1.116) + Có 3339 (84)</strong></td></tr>
+        <tr><td>3. Nộp thuế</td><td><strong>Nợ 3339 (84) / Có 112 (84)</strong></td></tr>
+        <tr><td>4. Khấu trừ VAT</td><td><strong>Nợ 133 (60) / Có 138 (60)</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN PHÁP LÝ ===== -->
+<section class="section" id="phap-ly">
+  <div class="section-label">Khởi đầu</div>
+  <h2 class="section-title"><span class="icon">⚖️</span> Cơ Sở Pháp Lý</h2>
+  <p class="section-desc">Trước khi bắt đầu, cần biết khung luật nào áp dụng. Đây là "bộ lọc pháp lý" trước khi tính DTA/DTL.</p>
+
+  <div class="law-pills">
+    <span class="law-pill">VAS 17</span>
+    <span class="law-pill">TT20/2006/TT-BTC</span>
+    <span class="law-pill new">🆕 TT99/2025/TT-BTC (01/01/2026)</span>
+    <span class="law-pill new">🆕 Luật TNDN 67/2025/QH15</span>
+    <span class="law-pill new">🆕 NĐ 320/2025/NĐ-CP</span>
+    <span class="law-pill new">🆕 TT20/2026/TT-BTC</span>
+    <span class="law-pill">TT45/2013 + TT30/2025 (khấu hao)</span>
+    <span class="law-pill">TT48/2019 + TT24/2022 (dự phòng)</span>
+    <span class="law-pill">Luật GTGT 48/2024</span>
+    <span class="law-pill">TT103/2014 (FCT)</span>
+    <span class="law-pill">NQ107/2023 + NĐ236/2025 (Pillar Two)</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Văn bản</th><th>Dùng khi nào?</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>VAS 17 + TT20/2006/TT-BTC</strong></td>
+          <td>Khung chính ghi nhận, đo lường, trình bày DTA/DTL theo Việt Nam</td>
+        </tr>
+        <tr>
+          <td><strong>TT99/2025/TT-BTC</strong></td>
+          <td>Chế độ kế toán mới, thay TT200/2014, áp dụng từ 01/01/2026. Thêm TK215 tài sản sinh học</td>
+        </tr>
+        <tr>
+          <td><strong>Luật TNDN 67/2025/QH15</strong></td>
+          <td>Thuế suất khi đảo ngược: 20% thông thường; 15%/17% DN nhỏ đủ điều kiện</td>
+        </tr>
+        <tr>
+          <td><strong>NĐ 320/2025 + TT20/2026</strong></td>
+          <td>Điều kiện chi phí được trừ, thời điểm doanh thu thuế, FX, quy định chuyển tiếp</td>
+        </tr>
+        <tr>
+          <td><strong>TT45/2013 + TT30/2025</strong></td>
+          <td>Khung khấu hao thuế TSCĐ — so sánh với khấu hao kế toán để tìm chênh lệch</td>
+        </tr>
+        <tr>
+          <td><strong>TT48/2019 + TT24/2022</strong></td>
+          <td>Điều kiện trích dự phòng KPT/HTK/đầu tư</td>
+        </tr>
+        <tr>
+          <td><strong>NQ107/2023 + NĐ236/2025</strong></td>
+          <td>Pillar Two top-up tax là current tax; không dùng để đo DTA/DTL nội địa</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">Lưu ý về thuế suất</div>
+      Tài liệu dùng 20% làm mặc định để minh họa. Theo Luật TNDN 67/2025 và NĐ 320/2025, khi đo lường DTA/DTL phải dùng thuế suất <strong>dự kiến tại thời điểm chênh lệch đảo ngược</strong>, bao gồm khả năng áp dụng 15%, 17%, 20% hoặc thuế suất ưu đãi nếu đủ điều kiện.
+    </div>
+  </div>
+</section>
+
+<!-- ===== NỀN TẢNG ===== -->
+<section class="section" id="nen-tang">
+  <div class="section-label">Nền tảng</div>
+  <h2 class="section-title"><span class="icon">🧱</span> Ba Khái Niệm Cốt Lõi</h2>
+  <p class="section-desc">Nắm 3 khái niệm này trước khi đọc bất kỳ phần nào khác.</p>
+
+  <div class="card-grid">
+    <div class="mini-card blue">
+      <div class="mini-card-icon">📒</div>
+      <div class="mini-card-title">GTGS — Giá Trị Ghi Sổ (Carrying Amount)</div>
+      <div class="mini-card-text">Giá trị tài sản/nợ phải trả trên Bảng CĐKT theo kế toán (VAS/TT99), sau khi trừ khấu hao lũy kế, dự phòng, điều chỉnh fair value (nếu có).</div>
+    </div>
+    <div class="mini-card blue">
+      <div class="mini-card-icon">🏛️</div>
+      <div class="mini-card-title">CST — Cơ Sở Thuế (Tax Base)</div>
+      <div class="mini-card-text">Giá trị tài sản/nợ phải trả theo quy định thuế.<br><strong>Với tài sản:</strong> giá trị sẽ được khấu trừ thuế trong tương lai.<br><strong>Với nợ:</strong> GTGS trừ khoản sẽ được khấu trừ thuế tương lai.</div>
+    </div>
+    <div class="mini-card green">
+      <div class="mini-card-icon">↔️</div>
+      <div class="mini-card-title">Chênh Lệch Tạm Thời</div>
+      <div class="mini-card-text"><strong>= GTGS − CST</strong><br>Sẽ đảo ngược khi tài sản thu hồi hoặc nợ thanh toán. → Tạo ra DTA hoặc DTL.</div>
+    </div>
+    <div class="mini-card purple">
+      <div class="mini-card-icon">🔒</div>
+      <div class="mini-card-title">Chênh Lệch Vĩnh Viễn</div>
+      <div class="mini-card-text">Không bao giờ đảo ngược (tiền phạt, chi phí không hợp lệ...). → KHÔNG ghi DTA/DTL.</div>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-title">Công thức cốt lõi</div>
+    <div class="formula-main">
+      <span class="text-dta">DTA</span> = Chênh lệch tạm thời <span class="highlight">được khấu trừ</span> × Thuế suất dự kiến khi đảo ngược<br>
+      <span class="text-dtl">DTL</span> = Chênh lệch tạm thời <span class="highlight">chịu thuế</span> × Thuế suất dự kiến khi đảo ngược<br>
+      <span class="dim">Chênh lệch tạm thời = GTGS − CST</span>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Bảng nhận diện nhanh DTA vs DTL</h3>
+  <div class="decision-row">
+    <div></div>
+    <div class="decision-card dc-dtl"><div class="dc-title">📈 GTGS > CST</div></div>
+    <div class="decision-card dc-dta"><div class="dc-title">📉 GTGS &lt; CST</div></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Loại khoản mục</th><th>GTGS > CST (dương)</th><th>GTGS &lt; CST (âm)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Tài Sản (Asset)</strong></td>
+          <td><span class="tag tag-dtl">DTL</span> Chịu thuế tương lai</td>
+          <td><span class="tag tag-dta">DTA</span> Được khấu trừ tương lai</td>
+        </tr>
+        <tr>
+          <td><strong>Nợ Phải Trả (Liability)</strong></td>
+          <td><span class="tag tag-dta">DTA</span> Được khấu trừ tương lai</td>
+          <td><span class="tag tag-dtl">DTL</span> Chịu thuế tương lai</td>
+        </tr>
+        <tr>
+          <td><strong>GTGS = CST</strong></td>
+          <td colspan="2" style="text-align:center"><span class="tag tag-no">Không DTA/DTL</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Tư duy Debit/Credit Side — La bàn nhất quán</h3>
+  <div class="callout callout-info">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">Tại sao dùng Debit/Credit?</div>
+      Thay vì ghi nhớ "Asset → Debit bình thường" rồi suy ngược ra, hãy nghĩ trực tiếp theo Debit/Credit Side để tránh nhầm khi gặp tình huống phức tạp.
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bên tài khoản</th><th>Tài khoản tăng khi ở bên này</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>DEBIT SIDE (Dr)</strong></td>
+          <td>Tiền, phải thu, HTK, TSCĐ, chi phí trả trước, lỗ, chi phí</td>
+          <td>Mua hàng: Dr HTK / Cr Tiền</td>
+        </tr>
+        <tr>
+          <td><strong>CREDIT SIDE (Cr)</strong></td>
+          <td>Phải trả, vay nợ, doanh thu, thu nhập, lãi, vốn chủ sở hữu</td>
+          <td>Bán hàng: Dr Phải thu / Cr Doanh thu</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-success">
+    <div class="callout-icon">🎯</div>
+    <div class="callout-body">
+      <div class="callout-title">3 câu hỏi để nhận diện DTA/DTL</div>
+      <strong>1.</strong> Khoản này đang nằm ở Dr (chưa khấu trừ/phân bổ hết)? → Dr-side: GTGS > CST = <span class="text-dtl">DTL</span>; GTGS &lt; CST = <span class="text-dta">DTA</span><br>
+      <strong>2.</strong> Khoản này đang nằm ở Cr (chưa thanh toán/chưa thực hiện)? → Cr-side: GTGS > CST = <span class="text-dta">DTA</span>; GTGS &lt; CST = <span class="text-dtl">DTL</span><br>
+      <strong>3.</strong> Kế toán đã ghi vào P&amp;L nhưng thuế chưa tính (hoặc ngược lại)? → Chắc chắn có chênh lệch tạm thời.
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Điều kiện ghi nhận</h3>
+  <ul>
+    <li><strong>DTA</strong> chỉ ghi nhận khi có bằng chứng đủ tin cậy về lợi nhuận chịu thuế tương lai đủ để sử dụng DTA.</li>
+    <li><strong>DTL</strong> về nguyên tắc luôn ghi nhận, trừ ngoại lệ: (1) DTL từ ghi nhận ban đầu goodwill; (2) DTL từ giao dịch không phải hợp nhất kinh doanh và không ảnh hưởng cả lợi nhuận kế toán lẫn lợi nhuận tính thuế.</li>
+    <li>Thuế suất đo lường: <strong>thuế suất dự kiến áp dụng khi chênh lệch đảo ngược</strong> — không mặc định 20% nếu doanh nghiệp đang hưởng ưu đãi.</li>
+  </ul>
+</section>
+
+<!-- ===== PHẦN 0A ===== -->
+<section class="section" id="0a">
+  <div class="section-label">Phần 0A</div>
+  <h2 class="section-title"><span class="icon">🗺️</span> Bản Đồ Khác Biệt Kế Toán – Thuế</h2>
+  <p class="section-desc">Tạo "bản đồ tư duy" trước khi làm bài deferred tax. Không phải mọi khác biệt kế toán–thuế đều tạo DTA/DTL.</p>
+
+  <h3 class="subsection-title">0A.1 — Phân loại nhanh: Tạm thời vs. Vĩnh viễn</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Câu hỏi kiểm tra</th><th>CÓ → Tạm thời (DTA/DTL)</th><th>CÓ → Vĩnh viễn (PE, không DTA/DTL)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Chênh lệch có đảo ngược trong tương lai không?</td>
+          <td>Khấu hao lệch, chi phí trích trước, doanh thu sớm/muộn</td>
+          <td>Phạt hành chính, chi phí không liên quan SXKD</td>
+        </tr>
+        <tr>
+          <td>Có thể bổ sung hồ sơ/điều kiện để được trừ không?</td>
+          <td>Accrual thiếu hóa đơn tạm thời, bonus chưa đến hạn chi</td>
+          <td>Thiếu hóa đơn chắc chắn không khắc phục được</td>
+        </tr>
+        <tr>
+          <td>Đây có phải thuế thu nhập không?</td>
+          <td>Chi phí thuế TNDN tạm thời, FCT-TNDN chịu thay</td>
+          <td>GTGT, TNCN nộp hộ, thuế NK cùng cơ sở</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">0A.2 — Các khác biệt thường TẠO DTA/DTL</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phần hành</th><th>Kế toán TT99/VAS</th><th>Thuế TNDN mới nhất</th><th>Kết quả thường gặp</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>TSCĐ, khấu hao</strong></td>
+          <td>Thời gian hữu ích và chính sách kế toán</td>
+          <td>Khung khấu hao TT45/TT30, điều kiện hồ sơ</td>
+          <td><span class="text-dtl">GTGS > CST → DTL</span><br><span class="text-dta">GTGS &lt; CST → DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Chi phí trả trước</strong></td>
+          <td>Phân bổ TK242 theo kỳ hưởng lợi</td>
+          <td>Thuế có thể trừ ngay khi có HĐ/chứng từ</td>
+          <td>Thuế trừ trước → <span class="text-dtl">DTL</span><br>KT ghi trước thuế → <span class="text-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Dự phòng, accrual, bonus</strong></td>
+          <td>Ghi nhận khi có nghĩa vụ hiện tại, ước tính được</td>
+          <td>Trừ khi thực chi/đủ hóa đơn/quy chế/trong hạn 90 ngày</td>
+          <td>Nợ phải trả Cr-side: GTGS > CST → <span class="text-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Doanh thu, cut-off</strong></td>
+          <td>Ghi theo chuyển giao quyền/dồn tích</td>
+          <td>Thời điểm doanh thu tính thuế theo NĐ320/TT20/2026</td>
+          <td>KT trước thuế → <span class="text-dtl">DTL</span><br>Thuế trước KT → <span class="text-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tỷ giá FX</strong></td>
+          <td>Revalue tiền tệ cuối kỳ; phi tiền tệ không revalue</td>
+          <td>Tiền/bank/phải thu: chưa tính đến khi thực hiện; nợ phải trả: xử lý riêng</td>
+          <td>FX Dr-side (tài sản): lãi → <span class="text-dtl">DTL</span>; lỗ → <span class="text-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fair value, impairment</strong></td>
+          <td>Ghi lãi/lỗ chưa thực hiện nếu áp FV model</td>
+          <td>Tính khi bán/thanh lý thực tế</td>
+          <td>FV tăng → <span class="text-dtl">DTL</span>; FV giảm → <span class="text-dta">DTA</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">0A.3 — Các khác biệt KHÔNG tạo DTA/DTL</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Khoản mục</th><th>Bản chất</th><th>Xử lý</th></tr></thead>
+      <tbody>
+        <tr><td>Phạt vi phạm hành chính, tiền chậm nộp thuế</td><td>Loại vĩnh viễn</td><td><span class="text-pe">PE</span> → không ghi DTA</td></tr>
+        <tr><td>GTGT đầu ra (thu hộ NN)</td><td>Thuế gián thu</td><td>Không DTA/DTL</td></tr>
+        <tr><td>TNCN khấu trừ hộ người lao động</td><td>Nộp hộ NLĐ</td><td>Không DTA/DTL</td></tr>
+        <tr><td>FCT khấu trừ hộ NCC nước ngoài</td><td>Nộp hộ nhà thầu</td><td>Không DTA/DTL</td></tr>
+        <tr><td>Thuế nhập khẩu vốn hóa cùng cơ sở</td><td>Cả KT và thuế cùng đưa vào nguyên giá</td><td>Không DTA/DTL</td></tr>
+        <tr><td>Pillar Two top-up tax</td><td>Current tax đặc biệt, ngoại lệ IAS 12</td><td>Ghi current tax; không dùng để đo DTA nội địa</td></tr>
+        <tr><td>Cổ tức trong nước (miễn thuế)</td><td>Thường là permanent difference</td><td>Không DTA/DTL trừ khi có nghĩa vụ thuế tương lai cụ thể</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">0A.5 — Checklist 10 câu trước khi kết luận DTA/DTL</h3>
+  <ol class="checklist">
+    <li><span class="checklist-num">1</span> Khoản mục là tài sản hay nợ phải trả?</li>
+    <li><span class="checklist-num">2</span> GTGS theo TT99/VAS là bao nhiêu?</li>
+    <li><span class="checklist-num">3</span> Cơ sở thuế là bao nhiêu?</li>
+    <li><span class="checklist-num">4</span> Chênh lệch có đảo ngược không?</li>
+    <li><span class="checklist-num">5</span> Nếu đảo ngược thì đảo vào năm nào?</li>
+    <li><span class="checklist-num">6</span> Thuế suất năm đảo ngược là 15%, 17%, 20% hay ưu đãi?</li>
+    <li><span class="checklist-num">7</span> Có đủ hồ sơ, hóa đơn, chứng từ, thanh toán không dùng tiền mặt không?</li>
+    <li><span class="checklist-num">8</span> Đây có phải GTGT/FCT-GTGT/thuế nhập khẩu cần tách khỏi TNDN không?</li>
+    <li><span class="checklist-num">9</span> DTA có bằng chứng thu hồi không?</li>
+    <li><span class="checklist-num">10</span> Có cần thuyết minh hoặc theo dõi ngoài bảng nếu chưa đủ điều kiện ghi nhận không?</li>
+  </ol>
+</section>
+
+<!-- ===== PHẦN 1 ===== -->
+<section class="section" id="phan-1">
+  <div class="section-label">Phần 1</div>
+  <h2 class="section-title"><span class="icon">🔧</span> Phân Bổ &amp; Khấu Hao</h2>
+  <p class="section-desc">Chênh lệch giữa khấu hao kế toán (TT99) và khấu hao thuế (TT45/TT30) là nguồn phổ biến nhất của DTA/DTL. Tài sản nằm ở Debit side.</p>
+
+  <h3 class="subsection-title">1.1 — Tài Sản Cố Định Hữu Hình (PPE)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Chênh lệch</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Khấu hao thuế <strong>nhanh hơn</strong> kế toán → GTGS > CST</td>
+          <td>700</td><td>600</td><td>+100</td>
+          <td><span class="tag tag-dtl">DTL 20</span></td>
+          <td>Máy CNC (Hà Nội): nguyên giá 1.000tr, KT 10 năm (GTGS=700), thuế TT45 cho 5 năm (CST=600)</td>
+        </tr>
+        <tr>
+          <td>Khấu hao KT <strong>nhanh hơn</strong> thuế → GTGS &lt; CST</td>
+          <td>550</td><td>650</td><td>-100</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>Dây chuyền SX (Bình Dương): KT khấu hao theo sản lượng (nhanh), thuế đường thẳng (chậm)</td>
+        </tr>
+        <tr>
+          <td>TSCĐ đã hết khấu hao thuế, kế toán còn lại</td>
+          <td>200</td><td>0</td><td>+200</td>
+          <td><span class="tag tag-dtl">DTL 40</span></td>
+          <td>Xe nâng (TP.HCM): thuế CST=0 nhưng kế toán còn 200tr</td>
+        </tr>
+        <tr>
+          <td>Impairment: kế toán ghi giảm, thuế hoãn đến thanh lý</td>
+          <td>850</td><td>1.000</td><td>-150</td>
+          <td><span class="tag tag-dta">DTA 30</span></td>
+          <td>Dây chuyền nhựa (Đồng Nai) bị tổn thất kỹ thuật; thuế giữ CST=1.000 đến khi thanh lý</td>
+        </tr>
+        <tr>
+          <td>Bên bán thanh lý TSCĐ: đảo ngược DTL/DTA tích lũy</td>
+          <td>0</td><td>0</td><td>0</td>
+          <td><span class="tag tag-no">Đảo ngược</span></td>
+          <td>Khi bán TSCĐ, DTL/DTA từ trước đảo ngược. Lãi/lỗ bán tài sản ghi nhận cùng kỳ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Thép Việt Tín – Máy cán thép 5.000tr</span>
+      <span class="case-tag">PPE</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row">
+        <div class="case-col">
+          <div class="case-col-title">Dữ kiện</div>
+          <ul>
+            <li>Kế toán: khấu hao <strong>12 năm</strong> (417tr/năm)</li>
+            <li>Thuế TT45: cho khấu hao <strong>8 năm</strong> (625tr/năm)</li>
+            <li>Sau <strong>3 năm</strong>: GTGS = 3.749tr, CST = 3.125tr</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <div class="case-col-title">Tính toán</div>
+          <p>Chênh lệch tạm thời chịu thuế = 3.749 − 3.125 = <strong>+624tr</strong></p>
+          <p>DTL = 624 × 20% = <strong>124,8tr</strong></p>
+          <p>Trong 5 năm tiếp theo, thuế hết CST nhưng KT còn phân bổ → DTL đảo ngược 83,4tr/năm</p>
+        </div>
+      </div>
+      <div class="case-result dtl">
+        <div class="result-label">Kết quả</div>
+        <div class="result-value">DTL = 124,8 triệu đồng</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">1.2 — Chi Phí Trả Trước (TK 242) và Phân Bổ</h3>
+  <div class="callout callout-info">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">Nguyên tắc</div>
+      Chênh lệch xuất hiện khi thuế cho trừ ngay khi có hóa đơn, trong khi kế toán phân bổ theo thời gian. Tài khoản TK242 là Dr-side.
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Thuế trừ toàn bộ ngay; KT còn phân bổ treo 242</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 24</span></td>
+          <td>Phí bảo lãnh 12 tháng 120tr nộp đầu năm; thuế trừ ngay theo HĐ</td>
+        </tr>
+        <tr>
+          <td>KT và thuế cùng phân bổ theo thời gian</td>
+          <td>90</td><td>90</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>License ERP phân bổ hàng tháng; cả KT và thuế cùng cơ sở</td>
+        </tr>
+        <tr>
+          <td>Bảo hiểm 12 tháng mua ngày 01/10: tại 31/12 GTGS còn 90tr</td>
+          <td>90</td><td>0 hoặc 90</td>
+          <td><span class="tag tag-dtl">DTL 18</span> hoặc <span class="tag tag-no">Không</span></td>
+          <td>Nếu thuế đã cho trừ toàn bộ 120tr thì DTL 18tr; nếu thuế cũng phân bổ thì không DTA/DTL</td>
+        </tr>
+        <tr>
+          <td>Doanh thu nhận trước đã tính thuế trước kế toán</td>
+          <td>90</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 18</span></td>
+          <td>SaaS thu trước 120tr/năm; đã xuất HĐ/tính TNDN ngay → DTA trên phần hoãn lại 90tr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Logistics ABC – Phí thuê kho 600tr/2 năm trả trước</span>
+      <span class="case-tag">Chi phí trả trước</span>
+    </div>
+    <div class="case-body">
+      <div class="case-row">
+        <div class="case-col">
+          <div class="case-col-title">Dữ kiện</div>
+          <ul>
+            <li>Thuế: trừ toàn bộ 600tr năm 2024</li>
+            <li>KT: phân bổ 25tr/tháng → cuối 2024 GTGS = 300tr</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <div class="case-col-title">Tính toán</div>
+          <p>GTGS = 300tr; CST = 0 → Chênh lệch = +300tr</p>
+          <p>DTL = 300 × 20% = <strong>60tr</strong></p>
+          <p>Năm 2025 DTL đảo ngược hoàn toàn</p>
+        </div>
+      </div>
+      <div class="case-result dtl">
+        <div class="result-label">Kết quả</div>
+        <div class="result-value">DTL = 60 triệu đồng</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">1.3 — Chi Phí Sửa Chữa Lớn (Major Overhaul)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Chi phí sửa chữa lớn vốn hóa (KT), thuế trừ ngay</td>
+          <td>160</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 32</span></td>
+          <td>Sửa chữa nhà máy 200tr; KT vốn hóa phân bổ 5 năm; thuế trừ ngay 200tr</td>
+        </tr>
+        <tr>
+          <td>Chi phí không đủ điều kiện KT vĩnh viễn</td>
+          <td>50</td><td>50</td>
+          <td><span class="tag tag-pe">PE</span></td>
+          <td>Chi phí phát triển dự án không đủ điều kiện thuế vĩnh viễn</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Nhà máy Gốm sứ Bát Tràng – Sửa chữa lò nung 500tr</span>
+      <span class="case-tag">Sửa chữa lớn</span>
+    </div>
+    <div class="case-body">
+      <p>KT vốn hóa phân bổ 125tr/năm → GTGS cuối 2023 = 375tr. Thuế trừ toàn bộ 500tr năm 2023 (CST = 0).</p>
+      <p>DTL = 375 × 20% = <strong>75tr</strong>. Năm 2024–2026 DTL giảm 25tr/năm.</p>
+      <div class="case-result dtl">
+        <div class="result-label">Kết quả ban đầu</div>
+        <div class="result-value">DTL = 75 triệu đồng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 2 ===== -->
+<section class="section" id="phan-2">
+  <div class="section-label">Phần 2</div>
+  <h2 class="section-title"><span class="icon">🛡️</span> Dự Phòng, Trích Trước &amp; Ước Tính Kế Toán</h2>
+  <p class="section-desc">Kế toán ghi nhận chi phí khi nghĩa vụ phát sinh (matching principle); thuế TNDN thường chỉ khấu trừ khi chi phí thực sự phát sinh có đủ chứng từ → tạo DTA.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">📋</div>
+    <div class="callout-body">
+      <div class="callout-title">Điều kiện khấu trừ thưởng/lương T13 (TT78/TT96)</div>
+      (1) Có quy chế lương thưởng ghi trong HĐLĐ/thỏa ước; (2) Thực chi trong <strong>90 ngày</strong> sau năm tài chính.
+    </div>
+  </div>
+
+  <h3 class="subsection-title">2.1 — Dự Phòng Bảo Hành Sản Phẩm</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Chênh lệch</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Bên bán trích dự phòng bảo hành → DTA</td>
+          <td>150</td><td>0</td><td>-150</td>
+          <td><span class="tag tag-dta">DTA 30</span></td>
+          <td>Nhà SX điều hòa trích bảo hành 150tr (1% DT). Thuế chỉ trừ khi thực chi có HĐ</td>
+        </tr>
+        <tr>
+          <td>Bên mua nhận quyền thu hồi từ NCC: ghi nhận KPT ngay, thuế khi nhận</td>
+          <td>80</td><td>0</td><td>+80</td>
+          <td><span class="tag tag-dtl">DTL 16</span></td>
+          <td>Nhà phân phối có quyền thu hồi 80tr từ NCC; KT ghi KPT ngay, thuế khi nhận/xác nhận</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Điện tử Bình Minh – Dự phòng bảo hành tivi 200tr</span>
+      <span class="case-tag">Bảo hành</span>
+    </div>
+    <div class="case-body">
+      <p>10.000 tivi × 0,4% cần bảo hành × 5tr/chiếc = dự phòng 200tr → <strong>DTA = 40tr</strong></p>
+      <p>Năm 2025 thực chi 170tr → DTA hoàn nhập 34tr, còn DTA 6tr.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">2.2 — Dự Phòng Nợ Phải Thu Khó Đòi</h3>
+  <div class="callout callout-warning">
+    <div class="callout-icon">📋</div>
+    <div class="callout-body">
+      <div class="callout-title">Điều kiện TT48/2019 (sửa đổi TT24/2022)</div>
+      (1) Nợ quá hạn ≥6 tháng hoặc con nợ phá sản/ngừng hoạt động; (2) Đủ hồ sơ chứng từ.
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Dự phòng KPT chưa đủ điều kiện thuế (chưa quá hạn đủ)</td>
+          <td>800</td><td>1.000</td>
+          <td><span class="tag tag-dta">DTA 40</span></td>
+          <td>KPT 1.000tr, dự phòng 200tr theo đánh giá KT; thuế chưa chấp nhận (nợ mới 4 tháng)</td>
+        </tr>
+        <tr>
+          <td>Dự phòng đủ điều kiện TT48; cả KT và thuế cùng kỳ</td>
+          <td>800</td><td>800</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Nợ quá hạn 12 tháng, đủ hồ sơ pháp lý</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">2.3 — Dự Phòng Giảm Giá Hàng Tồn Kho</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Lập dự phòng HTK về NRV; thuế chưa chấp nhận</td>
+          <td>420</td><td>500</td>
+          <td><span class="tag tag-dta">DTA 16</span></td>
+          <td>HTK giá gốc 500tr, NRV 420tr; dự phòng 80tr; thuế chưa chấp nhận</td>
+        </tr>
+        <tr>
+          <td>HTK lỗi thời/hết hạn: dự phòng toàn bộ, thuế khi đủ hồ sơ tiêu hủy</td>
+          <td>0</td><td>200</td>
+          <td><span class="tag tag-dta">DTA 40</span></td>
+          <td>Dược phẩm hết hạn 200tr; thuế trừ khi có biên bản hủy hàng xác nhận cơ quan thuế</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">2.4 — Accruals Chi Phí Cuối Năm</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Accrual kiểm toán/tư vấn cuối năm: DTA nếu chưa đủ hóa đơn</td>
+          <td>150</td><td>0 hoặc 150</td>
+          <td><span class="tag tag-dta">DTA nếu thiếu điều kiện</span></td>
+          <td>Audit fee 150tr phát sinh T12; nếu đến hạn quyết toán đã có HĐ/chứng từ thì không chênh lệch</td>
+        </tr>
+        <tr>
+          <td>Accrual chi phí CNTT/vận hành đã nghiệm thu nhưng HĐ kỳ sau</td>
+          <td>80</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 16</span></td>
+          <td>Bảo trì server hoàn thành tháng 12; HĐ từ NCC đến tháng 1</td>
+        </tr>
+        <tr>
+          <td>Thuế đất/land rate cuối năm: chưa có thông báo, kế toán trích</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 24</span></td>
+          <td>Thuế đất 2024 thông báo tháng 3/2025; KT ước tính 120tr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">2.5 — Thưởng, Lương Tháng 13 và Phép Năm</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Thưởng/lương T13 có quy chế + thực chi trước hạn 90 ngày</td>
+          <td>200</td><td>200</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Thưởng đáp ứng đủ điều kiện</td>
+        </tr>
+        <tr>
+          <td>Thưởng/lương T13 chưa đủ điều kiện hoặc thực chi sau hạn</td>
+          <td>200</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 40</span></td>
+          <td>Quyết định chi sau 31/3; thuế chỉ trừ khi thực chi trong hạn</td>
+        </tr>
+        <tr>
+          <td>Phép năm chưa nghỉ (leave accrual TK335): KT trích, thuế trừ khi thực chi</td>
+          <td>90</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 18</span></td>
+          <td>NV còn 90tr phép năm chưa nghỉ; thuế trừ khi thực chi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">2.6 — Các Dự Phòng Khác</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Dự phòng tái cơ cấu: KT trích khi phê duyệt, thuế trừ khi thực chi</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 60</span></td>
+          <td>Ban GĐ phê duyệt sa thải 50 NV; KT trích dự phòng 300tr</td>
+        </tr>
+        <tr>
+          <td>Dự phòng hợp đồng onerous</td>
+          <td>70</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 14</span></td>
+          <td>HĐ lỗ 70tr; KT trích dự phòng; thuế trừ khi chi phí thực phát sinh</td>
+        </tr>
+        <tr>
+          <td>Phạt vi phạm hành chính: PE; phạt HĐ thương mại: xét riêng</td>
+          <td>—</td><td>—</td>
+          <td><span class="tag tag-pe">PE</span></td>
+          <td>Phạt chậm nộp thuế/vi phạm hành chính: KHÔNG được trừ vĩnh viễn. Phạt HĐ thương mại nếu liên quan SXKD và đủ hồ sơ có thể được trừ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Hòa Phát – Dự phòng tái cơ cấu nhà máy thép Hải Dương</span>
+      <span class="case-tag">Tái cơ cấu</span>
+    </div>
+    <div class="case-body">
+      <p>Phê duyệt đóng phân xưởng, dự phòng 800tr → <strong>DTA = 160tr</strong></p>
+      <p>Q1/2024 thực chi 750tr → DTA hoàn nhập 150tr. Còn DTA 10tr tiếp tục.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 3 ===== -->
+<section class="section" id="phan-3">
+  <div class="section-label">Phần 3</div>
+  <h2 class="section-title"><span class="icon">📈</span> Đánh Giá Lại &amp; Giá Trị Hợp Lý (Fair Value)</h2>
+  <p class="section-desc">Áp dụng chủ yếu khi báo cáo IFRS hoặc hợp nhất kinh doanh. Lãi FV chưa thực hiện → DTL. Lỗ FV chưa thực hiện → DTA.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">Lưu ý quan trọng về VAS</div>
+      Phần này áp dụng chủ yếu khi doanh nghiệp báo cáo theo IFRS, hợp nhất kinh doanh, hoặc có yêu cầu của tập đoàn. Doanh nghiệp Việt Nam áp dụng VAS/TT99 thông thường cần kiểm tra từng loại tài sản trước khi áp dụng fair value.
+    </div>
+  </div>
+
+  <h3 class="subsection-title">3.1 — Bất Động Sản Đầu Tư (Fair Value Model)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>BĐS tăng FV: KT ghi lãi chưa thực hiện, thuế khi bán</td>
+          <td>1.500</td><td>1.000</td>
+          <td><span class="tag tag-dtl">DTL 100</span></td>
+          <td>Văn phòng cho thuê (HN): mua 1.000tr, FV cuối năm 1.500tr</td>
+        </tr>
+        <tr>
+          <td>BĐS giảm FV: KT ghi lỗ chưa thực hiện, thuế khi bán</td>
+          <td>850</td><td>1.000</td>
+          <td><span class="tag tag-dta">DTA 30</span></td>
+          <td>BĐS mua 1.000tr, FV giảm 850tr. Lỗ 150tr chưa được trừ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">3.2 — Tài Sản Tài Chính (FVTPL/FVOCI)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Cổ phiếu niêm yết: lãi FV chưa thực hiện</td>
+          <td>1.200</td><td>1.000</td>
+          <td><span class="tag tag-dtl">DTL 40</span></td>
+          <td>Mua cổ phiếu VNM 1.000tr; cuối năm giá 1.200tr. Lãi 200tr chưa chịu thuế</td>
+        </tr>
+        <tr>
+          <td>Cổ phiếu niêm yết: lỗ FV chưa thực hiện</td>
+          <td>850</td><td>1.000</td>
+          <td><span class="tag tag-dta">DTA 30</span></td>
+          <td>HPG mua 1.000tr, giảm xuống 850tr</td>
+        </tr>
+        <tr>
+          <td>Trái phiếu theo EIR: lãi KT hơn coupon</td>
+          <td>970</td><td>950</td>
+          <td><span class="tag tag-dtl">DTL 4</span></td>
+          <td>Mua TP giá 950tr; EIR phân bổ lên 970tr; thuế tính coupon khi nhận</td>
+        </tr>
+        <tr>
+          <td>Goodwill hợp nhất: CST=0 → NGOẠI LỆ</td>
+          <td>500</td><td>0</td>
+          <td><span class="tag tag-pe">KHÔNG DTL</span></td>
+          <td><strong>Ngoại lệ VAS 17/IAS 12:</strong> ghi nhận ban đầu goodwill không ghi DTL dù Dr-side GTGS > CST</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN 4 ===== -->
+<section class="section" id="phan-4">
+  <div class="section-label">Phần 4</div>
+  <h2 class="section-title"><span class="icon">💼</span> Tạm Ứng, Đặt Cọc &amp; Ký Quỹ</h2>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">Bẫy thường gặp</div>
+      Không được kết luận DTA chỉ vì "nhận tiền trước". Phải hỏi: khoản này đã bị tính thuế chưa?
+    </div>
+  </div>
+
+  <h3 class="subsection-title">4.1 — Tạm Ứng Cho Nhà Cung Cấp (Góc Nhìn Bên Mua)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Tạm ứng cho NCC: chưa nhận hàng → không phát sinh chi phí</td>
+          <td>300</td><td>300</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Tạm ứng 300tr chưa nhận hàng; GTGS = CST = 300tr</td>
+        </tr>
+        <tr>
+          <td>Tạm ứng NCC bị tổn thất (NCC nguy cơ vỡ nợ): KT trước, thuế chờ pháp lý</td>
+          <td>180</td><td>300</td>
+          <td><span class="tag tag-dta">DTA 24</span></td>
+          <td>NCC nguy cơ phá sản; KT dự phòng 120tr; thuế chờ xác nhận pháp lý</td>
+        </tr>
+        <tr>
+          <td>Tạm ứng NCC bằng ngoại tệ: phi tiền tệ sau khi cố định giá</td>
+          <td>1.000</td><td>1.000</td>
+          <td><span class="tag tag-no">Không FX</span></td>
+          <td>Ứng trước USD mua lô hàng đã cố định giá. Phi tiền tệ → không revalue FX</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">4.2 — Tạm Ứng Từ Khách Hàng (Góc Nhìn Bên Bán)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Khách trả trước, chưa giao hàng, chưa tính thuế</td>
+          <td>500</td><td>500</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Thuế TNDN cũng chỉ ghi khi giao hàng/cung cấp dịch vụ → không DTA trước</td>
+        </tr>
+        <tr>
+          <td>Khách trả trước + đã tính thuế trước kế toán</td>
+          <td>500</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 100</span></td>
+          <td>Đã tính TNDN khi nhận tiền/xuất HĐ; KT còn ghi doanh thu chưa thực hiện → DTA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">4.3 — Đặt Cọc và Ký Quỹ</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Đặt cọc hoàn lại: không phát sinh chi phí</td>
+          <td>500</td><td>500</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Bên thuê nộp deposit 500tr, sẽ được hoàn lại</td>
+        </tr>
+        <tr>
+          <td>Đặt cọc bị tịch thu: KT ghi thu nhập ngay, pháp lý xác nhận kỳ sau</td>
+          <td>250</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 50</span></td>
+          <td>Khách vi phạm HĐ, tịch thu cọc 250tr; KT ghi thu nhập ngay; thuế xác nhận kỳ sau</td>
+        </tr>
+        <tr>
+          <td>Security deposit ngoại tệ phải hoàn trả: tỷ giá tăng</td>
+          <td>1.100</td><td>1.000</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>Nhận deposit USD phải hoàn trả; tỷ giá tăng → nghĩa vụ hoàn trả tăng 100tr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: SaaS Việt Nam – Thu trước 12 tháng</span>
+      <span class="case-tag">Doanh thu nhận trước</span>
+    </div>
+    <div class="case-body">
+      <p>Công ty phần mềm tại TP.HCM thu trước 1.200tr cho gói 01/10/2026–30/09/2027, KT ghi doanh thu theo tháng. Tại 31/12/2026 còn doanh thu chưa thực hiện <strong>900tr</strong>.</p>
+      <p><strong>Nếu đã tính TNDN toàn bộ khi xuất HĐ/thu tiền:</strong> liability CA = 900, tax base = 0 → <strong>DTA = 180tr</strong></p>
+      <p><strong>Nếu thuế cũng phân bổ/ghi khi dịch vụ hoàn thành:</strong> tax base = 900 → <strong>Không DTA/DTL</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 5 ===== -->
+<section class="section" id="phan-5">
+  <div class="section-label">Phần 5</div>
+  <h2 class="section-title"><span class="icon">💱</span> Chênh Lệch Tỷ Giá Hối Đoái (FX)</h2>
+  <p class="section-desc">Phân biệt khoản mục tiền tệ và phi tiền tệ là bước đầu tiên bắt buộc.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Loại khoản mục</th><th>Revalue FX cuối kỳ?</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Tiền tệ (Monetary)</strong></td>
+          <td>✅ CÓ</td>
+          <td>Tiền mặt, KPT, KPTra, vay, deposit phải hoàn trả bằng tiền</td>
+        </tr>
+        <tr>
+          <td><strong>Phi tiền tệ (Non-monetary)</strong></td>
+          <td>❌ KHÔNG</td>
+          <td>Ứng trước mua hàng/dịch vụ đã cố định giá, trả trước tiền thuê đã cố định</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-title">4 bước tính DTA/DTL cho FX</div>
+    <div class="formula-main">
+      <span class="highlight">Bước 1:</span> <span class="dim">Phân loại tiền tệ hay phi tiền tệ</span><br>
+      <span class="highlight">Bước 2:</span> <span class="dim">Tính GTGS theo TT99 (tỷ giá cuối kỳ)</span><br>
+      <span class="highlight">Bước 3:</span> <span class="dim">Xác định cơ sở thuế (CST)</span><br>
+      → Tiền/bank/phải thu: CST = giá trị chưa revalue (thuế chưa tính)<br>
+      → Phải trả/vay: CST thường = GTGS (thuế cho tính cùng kỳ)<br>
+      <span class="highlight">Bước 4:</span> <span class="dim">Tài sản: GTGS > CST → DTL | Nợ: GTGS > CST → DTA</span>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">5.1 — Bảng quyết định nhanh FX</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Khoản mục ngoại tệ</th><th>FX unrealised cuối năm</th><th>Thuế TNDN</th><th>DTA/DTL</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Tiền/bank/phải thu lãi FX</strong></td>
+          <td>KT ghi lãi</td>
+          <td>Thuế chưa tính</td>
+          <td><span class="tag tag-dtl">DTL</span></td>
+        </tr>
+        <tr>
+          <td><strong>Tiền/bank/phải thu lỗ FX</strong></td>
+          <td>KT ghi lỗ</td>
+          <td>Thuế chưa cho trừ</td>
+          <td><span class="tag tag-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td><strong>Phải trả/vay lỗ FX</strong></td>
+          <td>KT ghi lỗ</td>
+          <td>Thuế cho trừ nếu đủ điều kiện</td>
+          <td><span class="tag tag-no">Không DTA/DTL</span></td>
+        </tr>
+        <tr>
+          <td><strong>Phải trả/vay lãi FX</strong></td>
+          <td>KT ghi lãi</td>
+          <td>Thuế tính thu nhập</td>
+          <td><span class="tag tag-no">Không DTA/DTL</span></td>
+        </tr>
+        <tr>
+          <td><strong>Ứng trước/trả trước cố định giá</strong></td>
+          <td>Không revalue</td>
+          <td>Không FX tax</td>
+          <td><span class="tag tag-no">Không DTA/DTL</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">5.2 — Case Studies FX</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Case</th><th>Dữ kiện</th><th>GTGS</th><th>CST</th><th>Kết quả</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Bank USD lãi FX</strong></td>
+          <td>$100,000; tỷ giá gốc 24.000; tỷ giá cuối kỳ 25.000</td>
+          <td>2.500tr</td><td>2.400tr</td>
+          <td><span class="tag tag-dtl">DTL = 20tr</span></td>
+        </tr>
+        <tr>
+          <td><strong>Phải thu USD lỗ FX</strong></td>
+          <td>$100,000; tỷ giá ghi nhận 25.000; tỷ giá cuối kỳ 24.000</td>
+          <td>2.400tr</td><td>2.500tr</td>
+          <td><span class="tag tag-dta">DTA = 20tr</span></td>
+        </tr>
+        <tr>
+          <td><strong>Phải trả NCC USD tỷ giá tăng</strong></td>
+          <td>$100,000; thuế cho tính cùng kỳ</td>
+          <td>2.500tr</td><td>2.500tr</td>
+          <td><span class="tag tag-no">Không</span></td>
+        </tr>
+        <tr>
+          <td><strong>Ứng trước NCC USD</strong></td>
+          <td>$50,000 mua máy đã cố định giá; phi tiền tệ</td>
+          <td colspan="2" style="text-align:center">Không revalue</td>
+          <td><span class="tag tag-no">Không DTA/DTL FX</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Vinatex – Chênh lệch tỷ giá cuối năm 2024</span>
+      <span class="case-tag">FX Tổng hợp</span>
+    </div>
+    <div class="case-body">
+      <ul>
+        <li>Tiền gửi 1M USD → lãi FX 500tr: KT ghi lãi nhưng thuế chưa tính → <strong>DTL = 100tr</strong></li>
+        <li>Vay ngắn hạn 2M USD → lỗ FX 1.000tr: nếu là nợ phải trả ngoại tệ và thuế đã cho tính sau bù trừ → <strong>không có DTA</strong></li>
+        <li>Ứng trước cotton phi tiền tệ → không revalue → <strong>không có DTA/DTL do FX</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 6 ===== -->
+<section class="section" id="phan-6">
+  <div class="section-label">Phần 6</div>
+  <h2 class="section-title"><span class="icon">📅</span> Cắt Kỳ &amp; Ghi Nhận Doanh Thu/Chi Phí (Cut-off)</h2>
+  <p class="section-desc">KT theo accrual basis; thuế theo thời điểm xuất hóa đơn hoặc chuyển giao quyền sở hữu/hoàn thành dịch vụ.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">Nguyên tắc doanh thu theo luật thuế</div>
+      Bán hàng: khi chuyển giao quyền sở hữu/quyền sử dụng. Dịch vụ: khi hoàn thành hoặc hoàn thành từng phần. <strong>Không đơn giản chỉ là ngày xuất hóa đơn.</strong>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">6.1 — Bên Bán (Doanh Thu Dồn Tích)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Hàng giao đường: quyền sở hữu chuyển T12 nhưng HĐ xuất đầu T1</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Hàng giao tàu 30/12; KT ghi doanh thu T12; HĐ xuất 5/1</td>
+        </tr>
+        <tr>
+          <td>Doanh thu theo % hoàn thành (POC xây lắp): HĐ/thuế điểm kỳ sau</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Dự án xây lắp 50% hoàn thành; KT ghi 300tr; HĐ/thanh toán kỳ sau</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">6.2 — Bên Mua (Chi Phí Dồn Tích)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Hàng nhận đường: nhận hàng cuối T12, chưa có HĐ</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 60</span></td>
+          <td>Hàng về kho 30/12; ghi HTK và KPTra 300tr; HĐ từ NCC nhận 5/1</td>
+        </tr>
+        <tr>
+          <td>Chi phí thuê VP Q4: thiếu chứng từ/điều kiện thanh toán</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dta">DTA nếu thiếu đk</span></td>
+          <td>Nếu có HĐ/HĐ/chứng từ hợp lệ thì không nhất thiết chờ thanh toán T1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Sữa Mộc Châu – Cut-off doanh thu T12/2024</span>
+      <span class="case-tag">Cut-off</span>
+    </div>
+    <div class="case-body">
+      <p>Giao 500 thùng sữa 29/12, quyền sở hữu chuyển giao. KT: ghi 1.200tr T12. HĐ xuất 5/1/2025.</p>
+      <p>Thuế điểm 5/1 → <strong>DTL = 240tr</strong>. Cộng dự phòng hàng trả lại 3% = 36tr → <strong>DTA = 7,2tr</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 7 ===== -->
+<section class="section" id="phan-7">
+  <div class="section-label">Phần 7</div>
+  <h2 class="section-title"><span class="icon">🎁</span> Chiết Khấu, Khuyến Mại &amp; Hàng Trả Lại</h2>
+
+  <h3 class="subsection-title">7.1 — Góc Nhìn Bên Bán</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Chiết khấu doanh số cho nhà phân phối đạt KPI: dồn tích, credit note kỳ sau</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 24</span></td>
+          <td>Trích 120tr chiết khấu cuối năm; credit note phát hành T1; thuế trừ khi có credit note</td>
+        </tr>
+        <tr>
+          <td>Loyalty points/voucher: KT ghi nghĩa vụ, thuế khi đổi</td>
+          <td>60</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 12</span></td>
+          <td>Tích điểm 60tr; KT ghi nghĩa vụ; thuế khi khách đổi điểm</td>
+        </tr>
+        <tr>
+          <td>Chiết khấu thương mại ghi trên HĐ ngay: cùng cơ sở</td>
+          <td>0</td><td>0</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>HĐ ghi sẵn chiết khấu; doanh thu KT = thuế = giá thuần</td>
+        </tr>
+        <tr>
+          <td>Dự phòng hàng trả lại và quyền thu hồi hàng</td>
+          <td>100</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>Ước tính 100tr hàng trả về; giấy báo có/điều chỉnh thuế khi hàng thực trả</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">7.2 — Góc Nhìn Bên Mua</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Chiết khấu doanh số nhận từ NCC: KT dồn tích trước khi NCC xác nhận</td>
+          <td>75</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 15</span></td>
+          <td>Chiết khấu 75tr từ NCC dồn tích; NCC xác nhận/thanh toán kỳ sau</td>
+        </tr>
+        <tr>
+          <td>Rebate ước tính cuối năm: KT giảm giá vốn, thuế chờ thỏa thuận</td>
+          <td>70</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 14</span></td>
+          <td>Ước tính rebate 70tr từ NCC; thuế chỉ ghi khi có thỏa thuận/HĐ điều chỉnh</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Masan Consumer – Chiết khấu kênh phân phối cuối năm 2024</span>
+      <span class="case-tag">Chiết khấu</span>
+    </div>
+    <div class="case-body">
+      <p>Chiết khấu ước tính 2.000 nhà phân phối = <strong>45 tỷ</strong> → DTA = 9 tỷ. Credit note phát hành T1–2/2025.</p>
+      <p>Đồng thời nhận chiết khấu từ NCC <strong>12 tỷ</strong> chưa xác nhận → DTL = 2,4 tỷ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 8 ===== -->
+<section class="section" id="phan-8">
+  <div class="section-label">Phần 8</div>
+  <h2 class="section-title"><span class="icon">🏛️</span> Nghĩa Vụ Thuế &amp; Phí Pháp Định</h2>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">⭐</div>
+    <div class="callout-body">
+      <div class="callout-title">Nguyên tắc vàng</div>
+      <strong>DTA/DTL chỉ phát sinh từ THUẾ THU NHẬP (thuế TNDN).</strong> Các sắc thuế khác chỉ tạo DTA/DTL khi chúng ảnh hưởng đến thu nhập chịu thuế TNDN tương lai.
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Loại thuế/phí</th><th>Tạo DTA/DTL?</th><th>Điều kiện</th></tr></thead>
+      <tbody>
+        <tr><td>GTGT đầu ra (thu hộ NN)</td><td><span class="tag tag-no">❌ Không</span></td><td>Thuế gián thu, không phải chi phí/thu nhập TNDN</td></tr>
+        <tr><td>GTGT đầu vào (khấu trừ)</td><td><span class="tag tag-no">❌ Không</span></td><td>Khoản phải thu với cơ quan thuế</td></tr>
+        <tr><td>TNCN khấu trừ hộ NLĐ</td><td><span class="tag tag-no">❌ Không</span></td><td>Nộp hộ người lao động</td></tr>
+        <tr><td>FCT khấu trừ hộ NCC nước ngoài</td><td><span class="tag tag-no">❌ Không</span></td><td>Nộp hộ nhà thầu nước ngoài</td></tr>
+        <tr><td>FCT-TNDN DN VN chịu thay (đủ điều kiện chi phí)</td><td><span class="tag tag-dta">✅ DTA (tạm thời)</span></td><td>KT ghi trước, thuế trừ khi nộp/đủ chứng từ</td></tr>
+        <tr><td>Thuế nhập khẩu vốn hóa vào TSCĐ/HTK, cùng cơ sở</td><td><span class="tag tag-no">❌ Không</span></td><td>Không có chênh lệch nếu cùng cơ sở</td></tr>
+        <tr><td>Thuế nhập khẩu bị truy thu, KT trích trước</td><td><span class="tag tag-dta">✅ DTA</span></td><td>Thuế TNDN trừ khi có quyết định/nộp tiền</td></tr>
+        <tr><td>Tiền phạt chậm nộp/vi phạm hành chính</td><td><span class="tag tag-pe">❌ PE</span></td><td>Vĩnh viễn không được trừ TNDN</td></tr>
+        <tr><td>Thuế đất/tiền sử dụng đất: thông báo sau năm</td><td><span class="tag tag-dta">✅ DTA</span></td><td>Thuế TNDN trừ khi có thông báo/nộp tiền</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap" style="margin-top:20px">
+    <table>
+      <thead><tr><th>STT</th><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>99</td>
+          <td>FCT-TNDN DN VN chịu thay: KT ghi chi phí, thuế chờ chứng từ nộp</td>
+          <td>100</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>DN VN chịu FCT thay NCC nước ngoài 100tr; thuế trừ khi có chứng từ nộp FCT</td>
+        </tr>
+        <tr>
+          <td>103</td>
+          <td>Thuế đất: thông báo sau năm, KT trích ước tính</td>
+          <td>130</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 26</span></td>
+          <td>Thông báo thuế đất 2024 nhận tháng 3/2025; KT trích 130tr theo ước tính</td>
+        </tr>
+        <tr>
+          <td>106</td>
+          <td>BHXH/BHYT/Công đoàn dồn tích nhưng nộp ngoài thời hạn</td>
+          <td>90</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 18</span></td>
+          <td>BHXH/CĐ cuối năm nộp sau năm (ngoài hạn); thuế trừ khi nộp đủ</td>
+        </tr>
+        <tr>
+          <td>108</td>
+          <td>Tiền phạt chậm nộp thuế/vi phạm hành chính</td>
+          <td>35</td><td>35</td>
+          <td><span class="tag tag-pe">PE</span></td>
+          <td>Phạt chậm nộp 35tr: ghi chi phí nhưng không được trừ TNDN vĩnh viễn</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN 9 ===== -->
+<section class="section" id="phan-9">
+  <div class="section-label">Phần 9</div>
+  <h2 class="section-title"><span class="icon">🛡️</span> Bảo Hiểm (Insurance)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Phí BH trả trước: nếu thuế trừ toàn bộ khi có HĐ/chứng từ</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 24</span></td>
+          <td>Phí BH 240tr cho kỳ 01/07/2026–30/06/2027. Tại 31/12/2026 GTGS còn 120tr. Thuế trừ toàn bộ → DTL 24tr</td>
+        </tr>
+        <tr>
+          <td>Phí BH: KT và thuế đều phân bổ theo tháng</td>
+          <td>180</td><td>180</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Phí BH phân bổ hàng tháng; cả KT và thuế cùng cơ sở</td>
+        </tr>
+        <tr>
+          <td>Phí BH dồn tích (chưa có HĐ): KT ghi phải trả, thuế trừ khi nhận HĐ</td>
+          <td>70</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 14</span></td>
+          <td>BH đã phát sinh nhưng HĐ nhận sau năm; ghi phải trả 70tr</td>
+        </tr>
+        <tr>
+          <td>KPT bồi thường chắc chắn: KT dồn tích, thuế khi BH xác nhận</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Tổn thất chắc chắn được BH bồi thường, dồn tích KPT 300tr; BH xác nhận/trả sau năm</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN 10 ===== -->
+<section class="section" id="phan-10">
+  <div class="section-label">Phần 10</div>
+  <h2 class="section-title"><span class="icon">🏗️</span> Hợp Đồng Xây Lắp &amp; Dài Hạn</h2>
+  <p class="section-desc">Phức tạp do KT theo % hoàn thành (POC), thuế theo thời điểm xuất HĐ/thanh toán.</p>
+
+  <h3 class="subsection-title">10.1 — Góc Nhìn Nhà Thầu (Bên Bán)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Doanh thu theo % hoàn thành: HĐ/thuế điểm kỳ sau</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Xây lắp 50% hoàn thành, ghi doanh thu 300tr theo POC; HĐ/thanh toán kỳ sau</td>
+        </tr>
+        <tr>
+          <td>Chi phí xây lắp dồn tích (chưa có HĐ nhà thầu phụ): thuế hoãn</td>
+          <td>400</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 80</span></td>
+          <td>Chi phí thi công 400tr nghiệm thu nhưng HĐ/chứng từ nhà thầu phụ đến kỳ sau</td>
+        </tr>
+        <tr>
+          <td>Dự phòng bảo hành công trình: KT ghi, thuế khi thực chi</td>
+          <td>130</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 26</span></td>
+          <td>Trích dự phòng bảo hành công trình 130tr; thuế trừ khi thực phát sinh chi</td>
+        </tr>
+        <tr>
+          <td>HĐ lập vượt tiến độ (overbilling): thuế tính theo HĐ, KT hoãn</td>
+          <td>200</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 40</span></td>
+          <td>Lập HĐ vượt 200tr so với tiến độ thực; thuế tính ngay; KT ghi nợ hợp đồng</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Novaland – Dự án căn hộ TP.HCM, 2.000 tỷ, hoàn thành 60%</span>
+      <span class="case-tag">Xây lắp tổng hợp</span>
+    </div>
+    <div class="case-body">
+      <strong>Nhà thầu:</strong>
+      <ul>
+        <li>DTL từ doanh thu chưa lập HĐ = 200 × 20% = <strong>40 tỷ</strong></li>
+        <li>DTL từ retention = <strong>10 tỷ</strong></li>
+        <li>DTA bảo hành = <strong>6 tỷ</strong> → DTL ròng = 44 tỷ</li>
+      </ul>
+      <strong>Chủ đầu tư:</strong> DTA từ XDCB chưa có HĐ = <strong>40 tỷ</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 11 ===== -->
+<section class="section" id="phan-11">
+  <div class="section-label">Phần 11</div>
+  <h2 class="section-title"><span class="icon">📊</span> Công Cụ Tài Chính &amp; Phái Sinh</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Tài sản phái sinh (forward/swap dương): lãi FV chưa thực hiện</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Forward mua ngoại tệ có FV dương 300tr; thuế chờ khi tất toán</td>
+        </tr>
+        <tr>
+          <td>Nợ phái sinh (swap âm): lỗ FV chưa thực hiện</td>
+          <td>300</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 60</span></td>
+          <td>Swap FV âm 300tr; thuế chỉ khấu trừ khi tất toán</td>
+        </tr>
+        <tr>
+          <td>Phí bảo lãnh khoản vay: KT phân bổ, thuế trừ ngay</td>
+          <td>120</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 24</span></td>
+          <td>Phí bảo lãnh 12 tháng 120tr nộp trước; thuế trừ ngay</td>
+        </tr>
+        <tr>
+          <td>Lãi vay vượt trần 30% EBITDA (NĐ 132/2020): chuyển kỳ sau</td>
+          <td>100</td><td>0</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>Lãi vay vượt trần, chuyển 5 năm. Ghi DTA chỉ khi có lợi nhuận tương lai</td>
+        </tr>
+        <tr>
+          <td>Lỗ thuế được chuyển sang kỳ sau (tax loss carry-forward)</td>
+          <td>0</td><td>500</td>
+          <td><span class="tag tag-dta">DTA 100</span></td>
+          <td>Lỗ 500tr được chuyển 5 năm. Ghi DTA=100tr <strong>KHI CÓ</strong> bằng chứng đủ lợi nhuận tương lai</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== EQUITY ===== -->
+<section class="section" id="equity">
+  <div class="section-label">Phần mới</div>
+  <h2 class="section-title"><span class="icon">💰</span> Equity, Cổ Tức, Đầu Tư, OCI &amp; Retained Earnings</h2>
+  <p class="section-desc">Phần hay bị bỏ sót khi học DTA/DTL, quan trọng trong hợp nhất và CPA.</p>
+
+  <h3 class="subsection-title">Case 1 — Đầu tư vào công ty con/liên kết</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tình huống</th><th>Kế toán</th><th>Thuế TNDN</th><th>Kết quả DTA/DTL</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Đầu tư theo giá gốc (Dr-side), dự phòng giảm giá chưa được chấp nhận</td>
+          <td>Dr Đầu tư / Cr Tiền; Dự phòng khi giảm giá</td>
+          <td>Thuế tính khi bán/chuyển nhượng</td>
+          <td>Nếu KT dự phòng mà thuế chưa chấp nhận → GTGS &lt; CST → <span class="text-dta">DTA</span></td>
+        </tr>
+        <tr>
+          <td>Đầu tư FVTPL: lãi FV chưa thực hiện</td>
+          <td>Dr Tài sản / Cr P&amp;L</td>
+          <td>Thuế tính khi bán. CST giữ giá gốc</td>
+          <td>GTGS > CST → <span class="text-dtl">DTL</span></td>
+        </tr>
+        <tr>
+          <td>Lãi equity method (đầu tư liên kết tăng)</td>
+          <td>Dr Đầu tư / Cr Thu nhập P&amp;L</td>
+          <td>Thuế tính khi nhận cổ tức/bán; phần lãi equity method chưa bị tính thuế</td>
+          <td>Dr-side GTGS > CST → <span class="text-dtl">DTL</span>. Đảo ngược khi nhận cổ tức/bán</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Case 2 — Cổ tức</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tình huống</th><th>Kế toán</th><th>Thuế TNDN</th><th>Kết quả</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Nhận cổ tức từ công ty con trong nước (đã nộp TNDN)</td>
+          <td>Dr Tiền / Cr Thu nhập tài chính</td>
+          <td>Thường được miễn thuế theo Luật TNDN 67/2025</td>
+          <td><span class="text-pe">PE</span> → Không DTA/DTL</td>
+        </tr>
+        <tr>
+          <td>Chia cổ tức cho cổ đông (bên chia)</td>
+          <td>Dr Lợi nhuận giữ lại / Cr Phải trả cổ tức</td>
+          <td>Không tạo chi phí được trừ cho bên chia</td>
+          <td>Bên chia: <span class="tag tag-no">Không DTA/DTL</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Case 4 — OCI và Deferred Tax</h3>
+  <div class="callout callout-purple">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">Quan trọng</div>
+      Deferred tax liên quan đến các khoản OCI phải được ghi nhận thẳng vào OCI, <strong>không qua P&amp;L</strong>.
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Khoản mục OCI</th><th>Bút toán</th><th>DTA/DTL — ghi vào đâu?</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Lãi đánh giá lại FVOCI (cổ phiếu, trái phiếu)</td>
+          <td>Dr Tài sản / Cr OCI</td>
+          <td>DTL = Dr OCI / Cr DTL. <strong>Không qua P&amp;L</strong></td>
+        </tr>
+        <tr>
+          <td>Lỗ đánh giá lại FVOCI</td>
+          <td>Dr OCI / Cr Tài sản</td>
+          <td>DTA = Dr DTA / Cr OCI. <strong>Không qua P&amp;L</strong></td>
+        </tr>
+        <tr>
+          <td>Hedge reserve vào OCI</td>
+          <td>Dr/Cr OCI</td>
+          <td>DTL/DTA ghi vào OCI cùng phần hedge</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Case 8 — Lỗ Thuế Chuyển Kỳ (Tax Loss Carry-Forward)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tình huống</th><th>GTGS/CST</th><th>Kết quả</th><th>Điều kiện ghi nhận</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Lỗ tính thuế được chuyển 5 năm tiếp theo</td>
+          <td>CST = 500 (deductible TD)</td>
+          <td><span class="tag tag-dta">DTA = 100</span></td>
+          <td>CHỈ ghi khi có bằng chứng đủ tin cậy về lợi nhuận chịu thuế tương lai</td>
+        </tr>
+        <tr>
+          <td>DTA lỗ thuế ghi một phần (probable amount only)</td>
+          <td>Lỗ 500; lợi nhuận kế hoạch đủ dùng 300</td>
+          <td><span class="tag tag-dta">DTA = 60</span></td>
+          <td>Phần 200 còn lại: theo dõi ngoài bảng, không ghi DTA</td>
+        </tr>
+        <tr>
+          <td>DTA lỗ thuế trong kỳ miễn thuế</td>
+          <td>Đảo ngược trong kỳ miễn 0%</td>
+          <td><span class="tag tag-no">DTA = 0</span></td>
+          <td>Đo theo thuế suất dự kiến khi đảo ngược — kỳ miễn = 0% → DTA = 0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN 12 ===== -->
+<section class="section" id="phan-12">
+  <div class="section-label">Phần 12</div>
+  <h2 class="section-title"><span class="icon">🤝</span> Hợp Nhất Kinh Doanh &amp; Tái Cơ Cấu</h2>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">⭐</div>
+    <div class="callout-body">
+      <div class="callout-title">Điểm dễ nhầm nhất!</div>
+      Goodwill từ hợp nhất kinh doanh: CST = 0 nhưng <strong>KHÔNG ghi DTL</strong> theo ngoại lệ VAS 17/IAS 12. Tài sản định danh khác (thương hiệu, QSD đất...) thì PHẢI ghi DTL.
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Mua công ty con: FV uplift tài sản thuần; CST bên bị mua không đổi</td>
+          <td>1.200</td><td>900</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Hợp nhất: tài sản định danh đánh giá lại lên 1.200tr; CST vẫn 900tr</td>
+        </tr>
+        <tr>
+          <td>Goodwill từ hợp nhất: CST=0; KHÔNG ghi DTL</td>
+          <td>500</td><td>0</td>
+          <td><span class="tag tag-pe">KHÔNG DTL ⚠️</span></td>
+          <td>Ngoại lệ VAS 17/IAS 12: không ghi DTL từ ghi nhận ban đầu goodwill</td>
+        </tr>
+        <tr>
+          <td>Lãi mua rẻ (bargain purchase): ghi P&amp;L, thuế có thể không tính</td>
+          <td>100</td><td>0</td>
+          <td><span class="tag tag-dtl">DTL 20</span></td>
+          <td>Mua rẻ tạo lãi KT 100tr. Nếu chưa chịu thuế → DTL = 20tr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Vinamilk mua 51% cổ phần Mộc Châu Milk</span>
+      <span class="case-tag">Business Combination</span>
+    </div>
+    <div class="case-body">
+      <ul>
+        <li>Giá mua: 1.200 tỷ; FV tài sản thuần 1.800 tỷ (100%) → Goodwill = 282 tỷ → <strong>không ghi DTL</strong></li>
+        <li>Đất đai FV uplift 200 tỷ → <strong>DTL = 40 tỷ</strong></li>
+        <li>Thương hiệu 300 tỷ (CST = 0) → <strong>DTL = 60 tỷ</strong></li>
+        <li><strong>Tổng DTL từ PPA = 100 tỷ</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 13 ===== -->
+<section class="section" id="phan-13">
+  <div class="section-label">Phần 13</div>
+  <h2 class="section-title"><span class="icon">⚠️</span> Các Trường Hợp Dễ Nhầm &amp; Checklist Chốt Sổ</h2>
+
+  <h3 class="subsection-title">Top Điểm Dễ Sai</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bẫy</th><th>Sai lầm thường gặp</th><th>Cách xử lý đúng</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Ứng trước NCC ngoại tệ</td>
+          <td>Revalue FX như phải thu tiền</td>
+          <td>Sau khi cố định giá → phi tiền tệ → <strong>KHÔNG revalue FX</strong></td>
+        </tr>
+        <tr>
+          <td>Goodwill hợp nhất</td>
+          <td>Tính DTL vì GTGS > CST = 0</td>
+          <td><strong>Không ghi DTL</strong> theo ngoại lệ VAS 17/IAS 12</td>
+        </tr>
+        <tr>
+          <td>Phạt hành chính vs phạt HĐ thương mại</td>
+          <td>Ghi PE cho cả hai</td>
+          <td>Phạt hành chính = PE. Phạt HĐ thương mại liên quan SXKD + đủ hồ sơ = <strong>có thể được trừ</strong></td>
+        </tr>
+        <tr>
+          <td>Chuyển lỗ (tax loss carry-forward)</td>
+          <td>Ghi DTA cơ học cho toàn bộ lỗ</td>
+          <td>Chỉ ghi khi có kế hoạch kinh doanh thực tế chứng minh sẽ có lãi</td>
+        </tr>
+        <tr>
+          <td>Thuế suất</td>
+          <td>Mặc định 20%</td>
+          <td>Dùng thuế suất <strong>dự kiến khi chênh lệch đảo ngược</strong> (15%/17%/20%/ưu đãi)</td>
+        </tr>
+        <tr>
+          <td>Khách trả trước đã tính thuế</td>
+          <td>Không ghi DTA vì "tiền nhận trước"</td>
+          <td>Tax base = 0 → <strong>DTA = 100</strong> nếu đủ điều kiện thu hồi</td>
+        </tr>
+        <tr>
+          <td>DTA/DTL liên quan OCI</td>
+          <td>Ghi qua P&amp;L</td>
+          <td>DTL/DTA từ OCI phải ghi <strong>thẳng vào OCI</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Checklist 12 Câu Kiểm Soát Cuối Kỳ</h3>
+  <ol class="checklist">
+    <li><span class="checklist-num">1</span> <strong>Khoản mục nằm ở Dr hay Cr side?</strong> — Nhầm side → tính ngược DTA/DTL</li>
+    <li><span class="checklist-num">2</span> <strong>GTGS theo TT99 là bao nhiêu?</strong> — Sai GTGS → sai chênh lệch tạm thời</li>
+    <li><span class="checklist-num">3</span> <strong>CST theo Luật TNDN là bao nhiêu?</strong> — Sai CST → toàn bộ DTA/DTL sai</li>
+    <li><span class="checklist-num">4</span> <strong>Chênh lệch có đảo ngược không?</strong> (Permanent vs. Temporary) — Ghi DTA cho khoản PE → sai nguyên tắc</li>
+    <li><span class="checklist-num">5</span> <strong>Đây là thuế thu nhập hay thuế khác?</strong> — Ghi DTA cho khoản không phải thuế TNDN</li>
+    <li><span class="checklist-num">6</span> <strong>Thuế suất dự kiến khi đảo ngược là bao nhiêu?</strong> — Dùng sai thuế suất → sai số DTA/DTL</li>
+    <li><span class="checklist-num">7</span> <strong>DTA có đủ bằng chứng lợi nhuận tương lai?</strong> — Ghi DTA không đủ điều kiện → overstate tài sản</li>
+    <li><span class="checklist-num">8</span> <strong>Có ngoại lệ không ghi DTA/DTL?</strong> — Goodwill, Pillar Two, giao dịch ban đầu không ảnh hưởng P&amp;L và thuế</li>
+    <li><span class="checklist-num">9</span> <strong>DTA/DTL liên quan OCI có ghi đúng vào OCI?</strong> — Ghi DTL/DTA từ OCI qua P&amp;L → sai presentation</li>
+    <li><span class="checklist-num">10</span> <strong>Đã kiểm tra điều kiện bù trừ DTA/DTL?</strong> — Trình bày gross thay vì net → sai BCĐKT</li>
+    <li><span class="checklist-num">11</span> <strong>Balance check:</strong> DTA/DTL cuối kỳ = Đầu kỳ + Phát sinh − Đảo ngược? — Roll-forward sai → không khớp BCĐKT</li>
+    <li><span class="checklist-num">12</span> <strong>Đã thuyết minh DTA chưa ghi nhận?</strong> — Thiếu thuyết minh → không đủ disclosure VAS 17</li>
+  </ol>
+</section>
+
+<!-- ===== PHẦN 14 ===== -->
+<section class="section" id="phan-14">
+  <div class="section-label">Phần 14</div>
+  <h2 class="section-title"><span class="icon">🌱</span> Tài Sản Sinh Học &amp; Thuế Thu Nhập Hoãn Lại</h2>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">🆕</div>
+    <div class="callout-body">
+      <div class="callout-title">TK215 theo TT99/2025</div>
+      TK 215 – Tài sản sinh học được bổ sung theo TT99/2025/TT-BTC, áp dụng từ 01/01/2026. Doanh nghiệp Việt Nam theo VAS/TT99 ghi theo <strong>giá gốc/chi phí thực tế</strong>, KHÔNG phải fair value (trừ báo cáo IFRS, hợp nhất, PPA hoặc yêu cầu tập đoàn).
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>GTGS</th><th>CST</th><th>Kết quả</th><th>Tình huống VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Bò sữa/cây lâu năm: KT khấu hao chậm hơn thuế</td>
+          <td>800</td><td>600</td>
+          <td><span class="tag tag-dtl">DTL 40</span></td>
+          <td>Đàn bò sữa, KT 8 năm, thuế nhanh hơn. GTGS còn 800tr, CST còn 600tr</td>
+        </tr>
+        <tr>
+          <td>Đàn vật nuôi bị dịch bệnh: KT ghi giảm trước khi có hồ sơ tiêu hủy</td>
+          <td>500</td><td>700</td>
+          <td><span class="tag tag-dta">DTA 40</span></td>
+          <td>Đàn bò bệnh, KT ghi tổn thất 200tr. Thuế chỉ chấp nhận khi có hồ sơ tiêu hủy</td>
+        </tr>
+        <tr>
+          <td>Heo/gà nuôi lấy thịt: KT vốn hóa chi phí, thuế trừ một phần ngay</td>
+          <td>1.200</td><td>900</td>
+          <td><span class="tag tag-dtl">DTL 60</span></td>
+          <td>Tập hợp chi phí vào TK215; nếu thuế chấp nhận trừ sớm hơn KT giá vốn → DTL</td>
+        </tr>
+        <tr>
+          <td>Cây mùa vụ giảm NRV: KT trích dự phòng, thuế chưa chấp nhận</td>
+          <td>650</td><td>900</td>
+          <td><span class="tag tag-dta">DTA 50</span></td>
+          <td>Vườn cà chua rớt giá, KT trích dự phòng 250tr; thuế khi bán thực tế</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case-study">
+    <div class="case-header">
+      <span>📌 Case Study: Sữa Cao Nguyên – Đàn bò sữa, bê con, tổn thất dịch bệnh</span>
+      <span class="case-tag">Tài sản sinh học</span>
+    </div>
+    <div class="case-body">
+      <ul>
+        <li>Đàn bò mẹ: GTGS=3.800tr, CST=3.200tr → <strong>DTL = 120tr</strong></li>
+        <li>Bê con sinh ra: nếu CST chưa xác lập → <strong>DTL = 80tr</strong> (kiểm tra hồ sơ)</li>
+        <li>Tổn thất dịch bệnh 150tr chờ hồ sơ → <strong>DTA = 30tr</strong></li>
+        <li>Bồi thường BH 90tr ghi KPT trước → <strong>DTL = 18tr</strong></li>
+        <li><strong>DTL ròng = 188tr</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHẦN 15 ===== -->
+<section class="section" id="phan-15">
+  <div class="section-label">Phần 15</div>
+  <h2 class="section-title"><span class="icon">🌐</span> Thuế Tối Thiểu Toàn Cầu (Pillar Two)</h2>
+  <p class="section-desc">Áp dụng theo NQ 107/2023/QH15 và NĐ 236/2025/NĐ-CP. Đối tượng: tập đoàn đa quốc gia doanh thu hợp nhất ≥ EUR 750 triệu trong ít nhất 2/4 năm liền kề.</p>
+
+  <div class="callout callout-danger">
+    <div class="callout-icon">⭐</div>
+    <div class="callout-body">
+      <div class="callout-title">Nguyên tắc cốt lõi</div>
+      <strong>Pillar Two top-up tax là CURRENT TAX (thuế hiện hành), KHÔNG phải deferred tax.</strong> Không ghi DTA/DTL cho Pillar Two theo IAS 12 (ngoại lệ bắt buộc).
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Loại thuế</th><th>Tính DTA/DTL?</th><th>Cách ghi nhận</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Thuế TNDN thông thường</td>
+          <td><span class="tag tag-dta">✅ Có</span></td>
+          <td>DTA/DTL theo thuế suất TNDN dự kiến khi đảo ngược</td>
+        </tr>
+        <tr>
+          <td>Pillar Two top-up tax</td>
+          <td><span class="tag tag-pe">❌ Không (ngoại lệ IAS 12)</span></td>
+          <td>Ghi current tax expense khi nghĩa vụ phát sinh</td>
+        </tr>
+        <tr>
+          <td>DTA từ lỗ/chênh lệch thông thường (DN có Pillar Two)</td>
+          <td><span class="tag tag-dta">✅ Có nếu đủ điều kiện</span></td>
+          <td>Tính theo thuế suất TNDN nội địa, KHÔNG phải 15%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Case</th><th>Tình huống</th><th>Kết quả</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>B1</td>
+          <td>FDI ưu đãi TNDN 10%, thuộc tập đoàn >EUR 750M: DTA vẫn tính theo 10%</td>
+          <td><span class="tag tag-dta">DTA theo 10%</span> — không lấy 15% Pillar Two</td>
+        </tr>
+        <tr>
+          <td>B2</td>
+          <td>ETR nội địa 10% → top-up 5%; lợi nhuận 1.000, top-up 50</td>
+          <td><span class="tag tag-check">Current tax 50</span> — không ghi DTA 50</td>
+        </tr>
+        <tr>
+          <td>B3</td>
+          <td>Dự phòng 200 đảo ngược trong giai đoạn ưu đãi 10%</td>
+          <td><span class="tag tag-dta">DTA = 20</span> (200×10%, không phải 200×15%)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== PHẦN 16 ===== -->
+<section class="section" id="phan-16">
+  <div class="section-label">Phần 16</div>
+  <h2 class="section-title"><span class="icon">🔀</span> Các Sắc Thuế Khác</h2>
+  <p class="section-desc">Quy tắc vàng: <em>"Khoản thuế này có làm thay đổi thu nhập chịu thuế TNDN tương lai không?"</em></p>
+
+  <h3 class="subsection-title">C.1 — Thuế GTGT</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>GTGT đầu ra phải nộp: thu hộ NN</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Thuế gián thu chuyển qua NN. Không ảnh hưởng TNDN</td>
+        </tr>
+        <tr>
+          <td>GTGT đầu vào được khấu trừ</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>Phải thu với cơ quan thuế, không phải chi phí TNDN</td>
+        </tr>
+        <tr>
+          <td>GTGT đầu vào không được KT, có thể bổ sung</td>
+          <td><span class="tag tag-dta">DTA tạm thời</span></td>
+          <td>Chỉ nếu chi phí bị loại tạm thời khỏi TNDN và sẽ được trừ sau</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">C.2 — FCT (Thuế Nhà Thầu)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Trường hợp</th><th>Kết quả</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>FCT-GTGT nộp thay, được khấu trừ như VAT</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>VAT recoverable, không phải chi phí TNDN</td>
+        </tr>
+        <tr>
+          <td>FCT-TNDN khấu trừ từ tiền trả NCC nước ngoài (nộp hộ)</td>
+          <td><span class="tag tag-no">Không</span></td>
+          <td>DN VN chỉ nộp hộ</td>
+        </tr>
+        <tr>
+          <td>FCT-TNDN DN VN chịu thay (gross-up), chưa có chứng từ</td>
+          <td><span class="tag tag-dta">DTA 20</span></td>
+          <td>Ghi chi phí, thuế trừ khi nộp FCT/có chứng từ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">C.4 — Ưu Đãi Thuế TNDN</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Năm đảo ngược chênh lệch</th><th>Thuế suất áp dụng</th><th>DTA trên 1.000 chênh lệch</th></tr></thead>
+      <tbody>
+        <tr><td>Năm miễn thuế</td><td>0%</td><td><strong>DTA = 0</strong></td></tr>
+        <tr><td>Năm giảm 50% trên thuế suất ưu đãi 10%</td><td>5%</td><td>DTA = 50</td></tr>
+        <tr><td>Năm ưu đãi 10%</td><td>10%</td><td>DTA = 100</td></tr>
+        <tr><td>Năm hết ưu đãi, DN nhỏ đủ điều kiện 15%</td><td>15%</td><td>DTA = 150</td></tr>
+        <tr><td>Năm hết ưu đãi, thuế suất phổ thông</td><td>20%</td><td>DTA = 200</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== TỔNG KẾT ===== -->
+<section class="section" id="tong-ket">
+  <div class="section-label">Tổng kết</div>
+  <h2 class="section-title"><span class="icon">📋</span> Bảng Nhận Diện Nhanh DTA/DTL</h2>
+  <p class="section-desc">Bảng tham khảo nhanh cho mọi tình huống phổ biến.</p>
+
+  <div class="summary-box">
+    <h3>🔍 Nhận diện theo Dr/Cr Side</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tình huống</th><th>Dr/Cr Side</th><th>GTGS vs CST</th><th>Kết quả</th></tr></thead>
+        <tbody>
+          <tr><td>Khấu hao thuế nhanh hơn KT</td><td>Dr (tài sản)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Khấu hao KT nhanh hơn thuế</td><td>Dr (tài sản)</td><td>GTGS &lt; CST</td><td>DTA</td></tr>
+          <tr><td>Dự phòng: KT trích, thuế chờ thực chi</td><td>Cr (nợ)</td><td>GTGS > CST</td><td>DTA</td></tr>
+          <tr><td>Chi phí trả trước: thuế trừ ngay, KT phân bổ</td><td>Dr (TK242)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Doanh thu KT trước thuế (POC, accrual)</td><td>Cr (doanh thu)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Khách trả trước đã tính thuế sớm</td><td>Cr (nợ nhận trước)</td><td>GTGS > CST</td><td>DTA</td></tr>
+          <tr><td>Lãi FX unrealised trên tiền/KPT USD</td><td>Dr (tài sản tiền tệ)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Lỗ FX unrealised trên tiền/KPT USD</td><td>Dr (tài sản tiền tệ)</td><td>GTGS &lt; CST</td><td>DTA</td></tr>
+          <tr><td>Lãi FV chưa thực hiện (BĐS, cổ phiếu)</td><td>Dr (tài sản)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Lãi equity method (đầu tư liên kết)</td><td>Dr (đầu tư)</td><td>GTGS > CST</td><td>DTL</td></tr>
+          <tr><td>Lỗ thuế chuyển kỳ (carry-forward)</td><td>Dr (lỗ lũy kế)</td><td>CST > GTGS</td><td>DTA nếu probable</td></tr>
+          <tr><td>OCI: lãi FVOCI chưa thực hiện</td><td>Dr (tài sản TC)</td><td>GTGS > CST</td><td>DTL vào OCI</td></tr>
+          <tr><td>Tiền phạt vi phạm hành chính</td><td>—</td><td>PE</td><td>PE, không DTA</td></tr>
+          <tr><td>Goodwill hợp nhất (ngoại lệ)</td><td>Dr (goodwill)</td><td>GTGS > CST = 0</td><td>KHÔNG DTL ⚠️</td></tr>
+          <tr><td>Pillar Two top-up tax</td><td>Current tax</td><td>Không phải TD</td><td>Current tax</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LUYỆN ĐỀ ===== -->
+<section class="section" id="luyen-de">
+  <div class="section-label">Phần 18</div>
+  <h2 class="section-title"><span class="icon">✏️</span> Bộ Câu Hỏi &amp; Bài Tập Luyện</h2>
+
+  <h3 class="subsection-title">Câu hỏi lý thuyết nhanh</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Câu</th><th>Đáp án ngắn</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1. Cơ sở thuế của tài sản là gì?</td>
+          <td>Là giá trị sẽ được khấu trừ cho mục đích thuế trong tương lai khi doanh nghiệp thu hồi tài sản.</td>
+        </tr>
+        <tr>
+          <td>2. Cơ sở thuế của nợ phải trả là gì?</td>
+          <td>Là GTGS của nợ phải trả trừ phần sẽ được khấu trừ thuế trong tương lai khi thanh toán nghĩa vụ.</td>
+        </tr>
+        <tr>
+          <td>3. Chênh lệch tạm thời khác vĩnh viễn thế nào?</td>
+          <td>Tạm thời sẽ đảo ngược trong tương lai và tạo DTA/DTL; vĩnh viễn không đảo ngược, không ghi DTA/DTL.</td>
+        </tr>
+        <tr>
+          <td>4. Khi nào ghi nhận DTA?</td>
+          <td>Khi có chênh lệch tạm thời được khấu trừ hoặc lỗ chuyển tiếp VÀ có bằng chứng đủ tin cậy về lợi nhuận chịu thuế tương lai.</td>
+        </tr>
+        <tr>
+          <td>5. Dùng thuế suất nào để đo DTA/DTL?</td>
+          <td>Thuế suất dự kiến áp dụng khi chênh lệch đảo ngược, không mặc định 20% nếu có ưu đãi/miễn thuế/15%/17%.</td>
+        </tr>
+        <tr>
+          <td>6. VAT đầu vào treo có tạo DTA không?</td>
+          <td>Không trực tiếp. Chỉ xét DTA nếu việc VAT/hóa đơn làm thay đổi chi phí TNDN được trừ trong tương lai.</td>
+        </tr>
+        <tr>
+          <td>7. FCT có tạo DTA không?</td>
+          <td>Phải tách FCT-GTGT và FCT-TNDN. Phần FCT-TNDN/chi phí chịu thay có thể tạo DTA nếu KT ghi trước thuế chưa chấp nhận.</td>
+        </tr>
+        <tr>
+          <td>8. Pillar Two top-up tax có dùng để đo DTA không?</td>
+          <td>Không. Top-up tax là thuế hiện hành; DTA/DTL nội địa vẫn đo bằng thuế suất TNDN dự kiến.</td>
+        </tr>
+        <tr>
+          <td>9. Fair value BĐS trong IFRS package có ghi DTL trên BCTC VAS không?</td>
+          <td>Không tự động. Nếu VAS statutory không ghi FV thì không có DTL từ FV trong BCTC VAS.</td>
+        </tr>
+        <tr>
+          <td>10. DTA/DTL có được bù trừ không?</td>
+          <td>Chỉ khi cùng đối tượng/cơ quan thuế và có quyền hợp pháp bù trừ theo điều kiện VAS 17.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Bài Tập Tính Toán Có Lời Giải</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Bài tập</th><th>Lời giải</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Máy móc nguyên giá 1.000tr. GTGS KT cuối năm 700tr; CST 600tr; thuế suất 20%.</td>
+          <td>Tài sản: GTGS > CST, chênh lệch chịu thuế 100tr → <strong>DTL = 20tr</strong></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bảo hiểm trả trước còn treo TK242 120tr. Thuế đã cho trừ toàn bộ. TS 20%.</td>
+          <td>GTGS 120, CST 0 → <strong>DTL = 24tr</strong>. Nếu thuế cũng phân bổ theo thời gian thì không DTA/DTL.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Dự phòng bảo hành cuối năm 500tr, thuế chỉ trừ khi thực chi. TS 20%.</td>
+          <td>Nợ phải trả: GTGS 500, CST 0 → chênh lệch được khấu trừ 500tr → <strong>DTA = 100tr</strong> nếu có lợi nhuận chịu thuế tương lai</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Dự phòng KPT 200tr chưa đủ hồ sơ TT48/TT24, dự kiến đủ điều kiện kỳ sau.</td>
+          <td>KPT bị giảm GTGS nhưng CST chưa giảm: chênh lệch khấu trừ 200tr → <strong>DTA = 40tr</strong></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Trích thưởng KPI 2.000tr; chi trước hạn quyết toán 1.600tr, chi sau hạn 400tr.</td>
+          <td>Phần 1.600tr đủ điều kiện: <strong>không DTA</strong>. Phần 400tr nếu được trừ khi chi năm sau: <strong>DTA = 80tr</strong></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Phải thu USD đánh giá lại cuối năm lãi 250tr; thuế chưa tính đến khi thu tiền.</td>
+          <td>Tài sản GTGS tăng so với CST: <strong>DTL = 50tr</strong>; đảo ngược khi thu tiền</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>SaaS thu trước 12 tháng 1.200tr ngày 01/10; tại 31/12 còn doanh thu chưa thực hiện 900tr. Thuế đã tính toàn bộ khi xuất HĐ. TS 20%.</td>
+          <td>Nợ phải trả: GTGS 900, CST 0 → chênh lệch khấu trừ 900tr → <strong>DTA = 180tr</strong></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>DN bán hàng trích rebate cuối năm 3.000tr, credit note xuất tháng 01 năm sau. TS 20%.</td>
+          <td>Nếu thuế chỉ chấp nhận khi có credit note: nợ phải trả → <strong>DTA = 600tr</strong></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Mua công ty con, tài sản đánh giá tăng 8 tỷ; tax base không đổi; goodwill phát sinh riêng. TS 20%.</td>
+          <td>FV step-up → <strong>DTL = 1,6 tỷ</strong>. Goodwill: <strong>không ghi DTL</strong> (ngoại lệ VAS 17)</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Lỗ tính thuế chuyển kỳ 5 tỷ; kế hoạch lợi nhuận chịu thuế tương lai tin cậy chỉ đủ dùng 3 tỷ. TS 20%.</td>
+          <td>Chỉ ghi DTA phần có khả năng: 3 tỷ × 20% = <strong>DTA = 600tr</strong>. Phần còn lại: thuyết minh ngoài bảng</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>DN miễn TNDN năm 2027; DTA từ bảo hành 1 tỷ đảo ngược toàn bộ trong 2027. TS miễn = 0%.</td>
+          <td>Đảo ngược trong kỳ miễn → <strong>DTA = 0</strong>. Không mặc định 20%.</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>FDI GloBE income 1.000 tỷ, ETR 10%; top-up tax 5% = 50 tỷ. TS TNDN ưu đãi 10%.</td>
+          <td>Top-up tax 50 tỷ: <strong>current tax</strong> (không ghi DTA/DTL). Các DTA/DTL nội địa vẫn tính theo 10%.</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Bê con TK215 ghi nhận 300tr từ chi phí chăm sóc đã tập hợp; hồ sơ chi phí hợp lệ.</td>
+          <td>Không mặc định CST = 0. Nếu chi phí cấu thành được thuế chấp nhận là giá trị thuế tương lai → CST ≈ GTGS → <strong>không DTL</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Cách Trình Bày Bài Thi Trong 4 Dòng</h3>
+  <div class="formula-box">
+    <div class="formula-title">4 bước trình bày bài thi</div>
+    <div class="formula-main">
+      <span class="highlight">Bước 1:</span> <span class="dim">Xác định tài sản hay nợ phải trả (Dr hay Cr side)</span><br>
+      <span class="highlight">Bước 2:</span> <span class="dim">Tính GTGS và cơ sở thuế (CST)</span><br>
+      <span class="highlight">Bước 3:</span> <span class="dim">Phân loại chênh lệch chịu thuế/được khấu trừ</span><br>
+      <span class="highlight">Bước 4:</span> <span class="dim">Nhân với thuế suất dự kiến → kết luận DTA/DTL hoặc PE</span>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Xu Hướng Đề Thi CA/CPA 2023–2025</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Nhóm dạng đề</th><th>Mô tả</th><th>Cách giải theo VN</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>PPE/Khấu hao</td>
+          <td>KT khấu hao khác thuế, tính DTL/DTA và đảo ngược</td>
+          <td>Dựa TT45/TT30; DTL/DTA = chênh lệch × thuế suất dự kiến</td>
+        </tr>
+        <tr>
+          <td>Accrual/Provision</td>
+          <td>Chi phí đã trích nhưng thuế chỉ trừ khi chi/đủ hồ sơ</td>
+          <td>Thường tạo DTA nếu chắc chắn được trừ; PE nếu không thể bổ sung</td>
+        </tr>
+        <tr>
+          <td>Revenue/Cut-off</td>
+          <td>Doanh thu KT và thuế khác thời điểm; nhận trước, SaaS, xây lắp</td>
+          <td>Xác định khoản đã bị tính TNDN chưa; đã tính trước → DTA trên nghĩa vụ hoãn lại</td>
+        </tr>
+        <tr>
+          <td>Business Combination</td>
+          <td>FV step-up, goodwill, unrealised profit nội bộ</td>
+          <td>Ghi DTL cho FV step-up; goodwill là ngoại lệ quan trọng</td>
+        </tr>
+        <tr>
+          <td>Tax Loss/DTA Recoverability</td>
+          <td>Lỗ chuyển kỳ, valuation allowance</td>
+          <td>DTA chỉ ghi khi có bằng chứng lợi nhuận chịu thuế tương lai đủ tin cậy</td>
+        </tr>
+        <tr>
+          <td>Tax Rate Change/Pillar Two</td>
+          <td>Đo lại DTA/DTL khi thuế suất thay đổi hoặc có ưu đãi/top-up tax</td>
+          <td>Dùng thuế suất dự kiến khi đảo ngược; Pillar Two không dùng để đo DTA nội địa</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div style="text-align:center; padding: 40px 20px; color: #999; font-size: 0.82rem; border-top: 2px dashed #EEE; margin-top: 20px;">
+  <p>📚 <strong>Thuế Thu Nhập Hoãn Lại Dành Cho Thiếu Nhi</strong></p>
+  <p>Theo VAS 17 | TT20/2006 | TT99/2025 | Luật TNDN 67/2025 | NĐ 320/2025 | TT20/2026</p>
+  <p style="margin-top:8px">⚠️ Tài liệu dùng thuế suất 20% làm mặc định minh họa. Luôn kiểm tra thuế suất dự kiến tại thời điểm chênh lệch đảo ngược.</p>
+</div>
+
+</div><!-- end container -->
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
